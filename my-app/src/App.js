@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react';
+// filepath: d:\uni\macathon\macathon_v2\my-app\src\App.js
+import React, { useState } from 'react';
+import Explore from './Explore';
 
 function App() {
-  const [sales, setSales] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api/sales')
-      .then(res => res.json())
-      .then(data => setSales(data))
-      .catch(err => console.error('Error fetching sales:', err));
-  }, []);
+  const [showExplore, setShowExplore] = useState(false);
 
   return (
     <div>
-      <h1>Sales Data</h1>
-      <ul>
-        {sales.map(sale => (
-          <li key={sale._id}>
-            Sale ID: {sale._id}, Total Amount: {sale.price}
-          </li>
-        ))}
-      </ul>
+      <button onClick={() => setShowExplore(!showExplore)}>
+        {showExplore ? 'Go to Home' : 'Go to Explore'}
+      </button>
+      {showExplore ? <Explore /> : (
+        <div>
+          <h1>Sales Data</h1>
+          <ul>
+            {/* Example sales data rendering */}
+            <li>Sale ID: 1, Total Amount: $100</li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
