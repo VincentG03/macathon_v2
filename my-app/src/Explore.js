@@ -7,7 +7,12 @@ const jobs = [
     title: 'Simulations Engineer',
     company: 'Monash High Powered Rocketry',
     paragraph: `<strong> What is this role?</strong> \n
-As a Simulations Engineer within the Dynamics subteam at Monash High Powered Rocketry, you are at the forefront of modelling and simulating the flight behaviour of all our rockets...`,
+As a Simulations Engineer within the Dynamics subteam at Monash High Powered Rocketry, you are at the forefront of modelling and simulating the flight behaviour of all our rockets. This includes developing and maintaining SATURN, our in-house Python-based 6-degree-of-freedom (6DOF) trajectory simulator, which is used to predict how a rocket will behave under various conditions. Your responsibilities also include performing Computational Fluid Dynamics (CFD) analysis to understand airflow and forces acting on the rocket, and assessing simulation outputs to guide key design decisions throughout the project lifecycle. 
+ 
+ <strong>Why is this important?</strong> \n
+ Simulations are critical for both the performance and safety of our rockets. They allow us to validate flight profiles, predict failure modes, and optimize the design before physical tests take place—saving time, money, and reducing risk. Your work directly contributes to our mission success by ensuring that every launch is based on thorough analysis and accurate modelling. With real-world constraints such as launch regulations, weather, and manufacturing tolerances, the simulations team plays a vital role in integrating all factors into a single, coherent flight prediction framework.
+ 
+ <strong> What will you do?</strong> \n`,
     points: [
       'Working with SATURN, our custom python-based 6 degree of freedom trajectory simulator.',
       'Performing Computational Fluid Dynamics analysis.',

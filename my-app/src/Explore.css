@@ -11,6 +11,7 @@ body {
     display: flex;
     height: 100vh;
     color: #1C1C1E; /* Text: Charcoal Black */
+    margin-top: 4rem;
   }
   
   /* Job List */
