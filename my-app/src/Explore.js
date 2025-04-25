@@ -78,6 +78,7 @@ function Explore() {
   };
 
   return (
+    <div className="explore-page">
     <div>
       {/* Navbar for Filters */}
       <div className="navbar">
@@ -152,6 +153,7 @@ function Explore() {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 }

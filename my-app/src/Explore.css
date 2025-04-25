@@ -258,8 +258,12 @@ body {
     background-color: #F7F9FB; /* Light blue hover effect */
     color: #0A1F44; /* Keep text consistent */
   }
-  /* Disable scrolling on the entire page */
-html, body {
+
+
+  /* Scope styles to the Explore page */
+.explore-page html, .explore-page body {
     overflow: hidden; /* Prevent scrolling on the page */
     height: 100%; /* Ensure the body takes up the full viewport height */
   }
+
+
