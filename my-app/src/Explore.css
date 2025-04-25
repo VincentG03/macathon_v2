@@ -180,17 +180,20 @@ body {
     background-color: #b5b5b5;
   }
 
-.job-list {
-  flex: 1;
-  overflow: visible;
-  padding: 0; /* ✅ Remove inner padding */
-  background-color: #f6f6f6;
-  border-radius: 8px;
-  z-index: 1;
-}
+  .job-list {
+    flex: 1;
+    overflow: visible;
+    padding: 1rem 0; /* Added top padding to prevent overlap */
+    background-color: #f6f6f6;
+    border-radius: 8px;
+    z-index: 1;
+    position: relative; /* make sure hover effect is visible */
+  }
 
-/* Job Cards */
+/* Add this to .job-card to prevent white showing on top */
 .job-card {
+  position: relative; /* Ensures stacking context */
+  z-index: 2; /* Stays above background */
   padding: 1.2rem;
   margin-bottom: 1rem;
   border: 2px solid #002b7a;
@@ -256,7 +259,7 @@ body {
   max-height: 100vh;
   border-radius: 8px;
   border: 2px solid #002b7a;
-  margin-top: 0.25rem;
+  margin-top: 1rem;
 }
 
 .job-details-box {
