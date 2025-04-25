@@ -147,12 +147,32 @@ function Explore({ goToHome, refreshExplore }) {
   >
     Apply Now
   </button>
-  <button
-    className="apply-button"
-    onClick={() => navigate("/rocket-simulator")}
-  >
-    Go to Rocket Simulator
-  </button>
+  <div className="button-container">
+  {selectedJob?.title === "Simulations Engineer" && (
+    <button
+      className="apply-button"
+      onClick={() => navigate("/rocket-simulator")}
+    >
+      Go to Rocket Simulator
+    </button>
+  )}
+  {selectedJob?.title === "Member" && (
+    <button
+      className="apply-button"
+      onClick={() => navigate("/ai-virtual-experience")}
+    >
+      Go to AI Virtual Experience
+    </button>
+  )}
+  {selectedJob?.title === "Investment Analyst" && (
+    <button
+      className="apply-button"
+      onClick={() => navigate("/finance-virtual-experience")}
+    >
+      Go to Finance Virtual Experience
+    </button>
+  )}
+</div>
 </div>
             </div>
           ) : (

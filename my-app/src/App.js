@@ -1,18 +1,20 @@
-// filepath: src/App.js
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import Explore from './Explore';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Explore from "./Explore";
 import RocketSimulator from "./HPR_VE";
+import TrainYourOwnModel from "./MDN_VE";
 
 function App() {
   return (
-    <Routes>
-      {/* Landing at “/” shows Home */}
-      <Route path="/" element={<Home />} />
-      {/* “/explore” shows the Explore page */}
-      <Route path="/explore" element={<Explore />} />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} /> {/* Home route */}
+        <Route path="/explore" element={<Explore />} /> {/* Explore route */}
+        <Route path="/rocket-simulator" element={<RocketSimulator />} /> {/* Rocket Simulator route */}
+        <Route path="/ai-virtual-experience" element={<TrainYourOwnModel />} />
+      </Routes>
+    </Router>
   );
 }
 
