@@ -1,6 +1,7 @@
 // filepath: src/Explore.js
 import React, { useState } from 'react';
 import './Explore.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const jobs = [
   {
@@ -56,10 +57,11 @@ The Monash Student Managed Fund is a prestigious, student-run investment fund...
 
 function Explore({ goToHome, refreshExplore }) {
   const [selectedJob, setSelectedJob] = useState(null);
-  const [selectedIndustry, setSelectedIndustry] = useState('All');
+  const [selectedIndustry, setSelectedIndustry] = useState("All");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const filteredJobs = selectedIndustry === 'All'
+  const navigate = useNavigate(); // Initialize navigate
+  const filteredJobs =
+  selectedIndustry === "All"
     ? jobs
     : jobs.filter((job) => job.industry === selectedIndustry);
 
@@ -76,9 +78,9 @@ function Explore({ goToHome, refreshExplore }) {
   return (
     <div className="explore-page">
       {/* Navigation Buttons */}
-      <div className="nav-buttons" style={{ marginTop: '1rem' }}>
-        <button onClick={goToHome}>Home</button>
-        <button onClick={refreshExplore}>Explore</button>
+      <div className="nav-buttons" style={{ marginTop: "1rem" }}>
+        <button onClick={() => navigate("/")}>Home</button> {/* Navigate to Home */}
+        <button onClick={() => navigate("/explore")}>Explore</button>
       </div>
 
       {/* Navbar for Filters */}
@@ -138,12 +140,20 @@ function Explore({ goToHome, refreshExplore }) {
                   <li key={index}>{point}</li>
                 ))}
               </ul>
-              <button
-                className="apply-button"
-                onClick={() => alert('Apply Now functionality can be implemented here!')}
-              >
-                Apply Now
-              </button>
+              <div className="button-container">
+  <button
+    className="apply-button"
+    onClick={() => alert("Apply Now functionality can be implemented here!")}
+  >
+    Apply Now
+  </button>
+  <button
+    className="apply-button"
+    onClick={() => navigate("/rocket-simulator")}
+  >
+    Go to Rocket Simulator
+  </button>
+</div>
             </div>
           ) : (
             <p className="job-details-placeholder">Select a job to view details</p>

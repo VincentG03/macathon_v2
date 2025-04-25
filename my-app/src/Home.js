@@ -1,14 +1,17 @@
 import React from 'react';
 import './Home.css';
 import img180DC from './assets/180DC.png';
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Home({ goToExplore }) {
+  const navigate = useNavigate();
+  
   return (
     <div>
       {/* Navigation */}
       <div className="nav-buttons">
-        <button onClick={() => window.location.reload()}>Home</button>
-        <button onClick={goToExplore}>Explore</button>
+        <button onClick={() => navigate("/")}>Home</button>
+        <button onClick={() => navigate("/explore")}>Explore</button> {/* Navigate to Explore */}
       </div>
 
       {/* Hero Section */}
@@ -21,7 +24,7 @@ function Home({ goToExplore }) {
           Don’t just read about student clubs — try their work before applying.
           Discover teams through real micro-projects that match your interests.
         </p>
-        <button className="cta" onClick={goToExplore}>
+        <button className="cta" onClick={() => navigate("/explore")}>
           Find my next student team
         </button>
       </section>

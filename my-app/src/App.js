@@ -1,23 +1,18 @@
-// filepath: src/App.js
-import React, { useState } from 'react';
-import Explore from './Explore';
-import Home from './Home';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Explore from "./Explore";
+import RocketSimulator from "./HPR_VE";
 
 function App() {
-  const [showExplore, setShowExplore] = useState(false);
-
-  const goToExplore = () => setShowExplore(true);
-  const goToHome = () => setShowExplore(false);
-  const refreshExplore = () => setShowExplore(false) || setTimeout(() => setShowExplore(true), 0);
-
   return (
-    <div className="App" style={{ fontFamily: 'sans-serif' }}>
-      {showExplore ? (
-        <Explore goToHome={goToHome} refreshExplore={refreshExplore} />
-      ) : (
-        <Home goToExplore={goToExplore} />
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} /> {/* Home route */}
+        <Route path="/explore" element={<Explore />} /> {/* Explore route */}
+        <Route path="/rocket-simulator" element={<RocketSimulator />} /> {/* Rocket Simulator route */}
+      </Routes>
+    </Router>
   );
 }
 
