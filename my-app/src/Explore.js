@@ -17,6 +17,7 @@ const jobs = [
     id: 1,
     title: 'Simulations Engineer',
     company: 'Monash High Powered Rocketry',
+    website: 'https://monashhpr.com',
     logo: hprLogo,
     paragraph: `Monash High Powered Rocketry designs, builds, and launches rockets to compete in international competitions such as the Spaceport America Cup. The team brings together students from engineering, science, and computer science to create sophisticated aerospace systems.
     <span class="bold-only">In this role, you may:</span>`,
@@ -35,6 +36,7 @@ const jobs = [
     id: 2,
     title: 'Artificial Intelligence Member',
     company: 'Monash DeepNeuron',
+    website: 'https://deepneuron.org/',
     logo: mdnLogo,
     paragraph: `Monash DeepNeuron is a student-led research initiative focused on artificial intelligence and neuroscience. The team explores cutting-edge technologies including neural networks, brain-computer interfaces, and biologically-inspired models.
     <span class="bold-only">In this role, you may:</span>`,
@@ -53,6 +55,7 @@ const jobs = [
     id: 3,
     title: 'Investment Analyst',
     company: 'Monash Student Managed Fund',
+    website: 'https://www.monashmsmf.org/',
     logo: msmfLogo,
     paragraph: `Monash Student Managed Fund is a student-run investment fund managing real capital on behalf of the Monash Foundation. It provides hands-on experience in stock research, valuation, and portfolio management.
     <span class="bold-only">In this role, you may:</span>`,
@@ -72,6 +75,7 @@ const jobs = [
     id: 4,
     title: 'Robotics Engineer',
     company: 'Monash Nova Rova',
+    website: 'https://www.novarover.space/',
     logo: novaLogo,
     paragraph: `Monash Nova Rover is a student-led team that designs, builds, and operates Mars rovers to compete in international competitions such as the University Rover Challenge (URC). The team brings together students from engineering, science, IT, and design to develop advanced robotic systems capable of autonomous navigation, science exploration, and remote operation in challenging environments.
     <span class="bold-only">In this role, you may:</span>`,
@@ -91,6 +95,7 @@ const jobs = [
     id: 5,
     title: 'Electrical Engineer',
     company: 'Monash MotorSport',
+    website: 'https://www.monashmotorsport.com/',
     logo: mmsLogo,
     paragraph: `Monash Motorsport is a student-run team that designs, builds, and races Formula Student electric and autonomous race cars to compete in global competitions such as Formula SAE-A and Formula Student Germany. The team brings together students from engineering, science, IT, and commerce to push the boundaries of automotive innovation through advanced engineering, research, and testing.
     <span class="bold-only">In this role, you may:</span>`,
@@ -111,6 +116,7 @@ const jobs = [
     id: 6,
     title: 'Developer',
     company: 'Monash AIM',
+    website: 'https://monashaim.github.io/',
     logo: aimLogo,
     paragraph: `Monash AIM is a student-led initiative harnessing the power of AI to revolutionise medical imaging. We’re developing innovative solutions for disease classification and detection, using a diverse skillset that includes Python, machine learning, and image processing.
     We AIM to be at the forefront of AI-driven medical imaging solutions, enabling the advancement of clinical practice by bringing passionate students from various disciplines in order to collaborate and create innovative solutions.
@@ -130,6 +136,7 @@ const jobs = [
     id: 7,
     title: 'Writer',
     company: 'Creative Writers Monash',
+    website: 'https://www.monashclubs.org/clubs/Creative-Writers',
     logo: writeLogo,
     paragraph: `We are a writing community that encourages our members to write in all forms! We give talks about writing topics and provide feedback for each other's work at weekly meetings. We publish our members' work online and in print, run a yearly winter writers' retreat, spoken word events, and more!
     <span class="bold-only">As a writer, you may:</span>`,
@@ -148,6 +155,7 @@ const jobs = [
     id: 8,
     title: 'People and Culture',
     company: 'Monash BrewLab',
+    website: 'https://www.monashbrewlab.com/',
     logo: brewLogo,
     paragraph: `Are you an alcoholic in need to quench your thirst? Join Monash BrewLab, a student-run brewery that produces high-quality craft beer. We are looking for passionate individuals to join our People and Culture team to help us create a positive and inclusive environment for all members.
     <span class="bold-only">As a P&C officer, you may:</span>`,
@@ -299,7 +307,14 @@ function Explore() {
                       ))}
                     </ul>
                     <div className="button-container">
-                      <button className="apply-button" onClick={() => alert("Apply Now functionality can be implemented here!")}>Apply Now</button>
+                    {selectedJob.website && (
+                        <button
+                          className="apply-button"
+                          onClick={() => window.open(selectedJob.website, '_blank', 'noopener,noreferrer')}
+                        >
+                          Visit Website
+                        </button>
+                      )}
                       {selectedJob.title === "Simulations Engineer" && (
                         <button className="apply-button" onClick={() => navigate("/rocket-simulator")}>Go to Rocket Simulator Experience</button>
                       )}
