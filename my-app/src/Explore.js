@@ -86,16 +86,13 @@ function Explore() {
 
   return (
     <div className="explore-page">
-      {/* Navigation Buttons */}
       <div className="nav-buttons" style={{ marginTop: "1rem" }}>
         <button onClick={() => navigate("/")}>Home</button>
         <button onClick={() => navigate("/explore")}>Explore</button>
       </div>
 
-      {/* Title */}
       <h1 className="explore-title">Student Teams</h1>
 
-      {/* Filter Bar */}
       <div className="filter-bar">
         <div className="navbar">
           <div className="filter-dropdown">
@@ -135,10 +132,9 @@ function Explore() {
         </div>
       </div>
 
-      {/* Main Layout */}
+      {/* MAIN LAYOUT */}
       <div className="explore-container">
         {filteredJobs.length === 0 ? (
-          // If no matches, full-width placeholder
           <div className="no-results-panel">
             <div className="job-details-box">
               <p className="job-details-placeholder">No results found.</p>
@@ -146,7 +142,6 @@ function Explore() {
           </div>
         ) : (
           <>
-            {/* Job list */}
             <div className="job-list">
               {filteredJobs.map((job) => (
                 <div
@@ -165,42 +160,47 @@ function Explore() {
               ))}
             </div>
 
-        {/* Right Panel: Job Details */}
-        {selectedJob && (
-          <div className="job-details">
-            <div className="job-details-box">
-              <h2 className="job-details-title">{selectedJob.title}</h2>
-              <h3 className="job-details-company">{selectedJob.company}</h3>
-              {selectedJob.paragraph.split('\n').map((text, index) => (
-                <p
-                  key={index}
-                  className="job-details-paragraph"
-                  dangerouslySetInnerHTML={{ __html: text.trim() }}
-                ></p>
-              ))}
-              <ul className="job-details-points">
-                {selectedJob.points.map((point, index) => (
-                  <li key={index}>{point}</li>
-                ))}
-              </ul>
-              <div className="button-container">
-                <button className="apply-button" onClick={() => alert("Apply Now functionality can be implemented here!")}>
-                  Apply Now
-                </button>
-                {selectedJob.title === "Simulations Engineer" && (
-                  <button className="apply-button" onClick={() => navigate("/rocket-simulator")}>
-                    Go to Rocket Simulator
-                  </button>
-                )}
-                {selectedJob.title === "Artificial Intelligence Member" && (
-                  <button className="apply-button" onClick={() => navigate("/ai-virtual-experience")}>
-                    Go to AI Virtual Experience
-                  </button>
-                )}
-                {selectedJob.title === "Investment Analyst" && (
-                  <button className="apply-button" onClick={() => navigate("/finance-virtual-experience")}>
-                    Go to Finance Virtual Experience
-                  </button>
+            <div className="job-details">
+              <div className="job-details-box">
+                {selectedJob ? (
+                  <>
+                    <h2 className="job-details-title">{selectedJob.title}</h2>
+                    <h3 className="job-details-company">{selectedJob.company}</h3>
+                    {selectedJob.paragraph.split('\n').map((text, index) => (
+                      <p
+                        key={index}
+                        className="job-details-paragraph"
+                        dangerouslySetInnerHTML={{ __html: text.trim() }}
+                      ></p>
+                    ))}
+                    <ul className="job-details-points">
+                      {selectedJob.points.map((point, index) => (
+                        <li key={index}>{point}</li>
+                      ))}
+                    </ul>
+                    <div className="button-container">
+                      <button className="apply-button" onClick={() => alert("Apply Now functionality can be implemented here!")}>
+                        Apply Now
+                      </button>
+                      {selectedJob.title === "Simulations Engineer" && (
+                        <button className="apply-button" onClick={() => navigate("/rocket-simulator")}>
+                          Go to Rocket Simulator
+                        </button>
+                      )}
+                      {selectedJob.title === "Artificial Intelligence Member" && (
+                        <button className="apply-button" onClick={() => navigate("/ai-virtual-experience")}>
+                          Go to AI Virtual Experience
+                        </button>
+                      )}
+                      {selectedJob.title === "Investment Analyst" && (
+                        <button className="apply-button" onClick={() => navigate("/finance-virtual-experience")}>
+                          Go to Finance Virtual Experience
+                        </button>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <p className="job-details-placeholder">Select a job to view more details and try a virtual challenge.</p>
                 )}
               </div>
             </div>
