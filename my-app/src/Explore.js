@@ -3,11 +3,16 @@ import React, { useState } from 'react';
 import './Explore.css';
 import { useNavigate } from 'react-router-dom';
 
+import hprLogo from './assets/hpr.png';
+import mdnLogo from './assets/mdn.jpeg';
+import msmfLogo from './assets/msmf.jpeg';
+
 const jobs = [
   {
     id: 1,
     title: 'Simulations Engineer',
     company: 'Monash High Powered Rocketry',
+    logo: hprLogo,
     paragraph: `As a Simulations Engineer within the Dynamics subteam at Monash High Powered Rocketry...`,
     points: [
       'Working with SATURN, our custom python-based 6 degree of freedom trajectory simulator.',
@@ -24,6 +29,7 @@ const jobs = [
     id: 2,
     title: 'Artificial Intelligence Member',
     company: 'Monash DeepNeuron',
+    logo: mdnLogo,
     paragraph: `The Monash Deep Neuron Team is a student-led initiative...`,
     points: [
       'Deep neural networks and large language models',
@@ -40,6 +46,7 @@ const jobs = [
     id: 3,
     title: 'Investment Analyst',
     company: 'Monash Student Managed Fund',
+    logo: msmfLogo,
     paragraph: `The Monash Student Managed Fund is a prestigious, student-run investment fund...`,
     points: [
       'Conduct equity research and valuation of ASX-listed companies...',
@@ -132,7 +139,6 @@ function Explore() {
         </div>
       </div>
 
-      {/* MAIN LAYOUT */}
       <div className="explore-container">
         {filteredJobs.length === 0 ? (
           <div className="no-results-panel">
@@ -149,8 +155,13 @@ function Explore() {
                   className={`job-card ${selectedJob?.id === job.id ? 'job-card-selected' : ''}`}
                   onClick={() => setSelectedJob(job)}
                 >
-                  <h3 className="job-title">{job.title}</h3>
-                  <p className="job-company">{job.company}</p>
+                  <div className="job-header">
+                    <div>
+                      <h3 className="job-title">{job.title}</h3>
+                      <p className="job-company">{job.company}</p>
+                    </div>
+                    <img src={job.logo} alt="Team logo" className="job-logo-left" />
+                  </div>
                   <div className="job-tags">
                     {job.tags.map((tag, index) => (
                       <span key={index} className="job-tag">{tag}</span>
@@ -164,8 +175,14 @@ function Explore() {
               <div className="job-details-box">
                 {selectedJob ? (
                   <>
-                    <h2 className="job-details-title">{selectedJob.title}</h2>
-                    <h3 className="job-details-company">{selectedJob.company}</h3>
+                    <div className="job-details-header">
+                      <div>
+                        <h2 className="job-details-title">{selectedJob.title}</h2>
+                        <h3 className="job-details-company">{selectedJob.company}</h3>
+                      </div>
+                      <img src={selectedJob.logo} alt="Team logo" className={`job-logo-right ${selectedJob.title.replaceAll(' ', '-').toLowerCase()}`} />
+                    </div>
+                    <hr className="job-details-divider" />
                     {selectedJob.paragraph.split('\n').map((text, index) => (
                       <p
                         key={index}
@@ -179,28 +196,20 @@ function Explore() {
                       ))}
                     </ul>
                     <div className="button-container">
-                      <button className="apply-button" onClick={() => alert("Apply Now functionality can be implemented here!")}>
-                        Apply Now
-                      </button>
+                      <button className="apply-button" onClick={() => alert("Apply Now functionality can be implemented here!")}>Apply Now</button>
                       {selectedJob.title === "Simulations Engineer" && (
-                        <button className="apply-button" onClick={() => navigate("/rocket-simulator")}>
-                          Go to Rocket Simulator
-                        </button>
+                        <button className="apply-button" onClick={() => navigate("/rocket-simulator")}>Go to Rocket Simulator Experience</button>
                       )}
                       {selectedJob.title === "Artificial Intelligence Member" && (
-                        <button className="apply-button" onClick={() => navigate("/ai-virtual-experience")}>
-                          Go to AI Virtual Experience
-                        </button>
+                        <button className="apply-button" onClick={() => navigate("/ai-virtual-experience")}>Go to AI Experience</button>
                       )}
                       {selectedJob.title === "Investment Analyst" && (
-                        <button className="apply-button" onClick={() => navigate("/finance-virtual-experience")}>
-                          Go to Finance Virtual Experience
-                        </button>
+                        <button className="apply-button" onClick={() => navigate("/finance-virtual-experience")}>Go to Financial Analysis Experience</button>
                       )}
                     </div>
                   </>
                 ) : (
-                  <p className="job-details-placeholder">Select a job to view more details and try a virtual challenge.</p>
+                  <p className="job-details-placeholder">Select a job to view more details and try a virtual challenge 📚</p>
                 )}
               </div>
             </div>

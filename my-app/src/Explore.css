@@ -81,7 +81,7 @@ body {
 }
 
 .filter-dropdown::after {
-  content: "▼";
+  content: "\25BC";
   position: absolute;
   right: 1rem;
   top: 50%;
@@ -179,6 +179,14 @@ body {
   border-color: #002b7a;
 }
 
+.job-header,
+.job-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
 .job-title {
   font-size: 1.4rem;
   margin: 0;
@@ -188,10 +196,9 @@ body {
 
 .job-company {
   font-size: 1.1rem;
-  color: #0A1F44; /* same as .job-title */
-  font-weight: 500; /* optional: adds emphasis */
+  color: #0A1F44;
+  font-weight: 500;
 }
-
 
 .job-tags {
   display: flex;
@@ -239,6 +246,7 @@ body {
   font-size: 1.4rem;
   margin-bottom: 1rem;
   color: #5A5F73;
+  margin-top: 0;
 }
 
 .job-details-paragraph {
@@ -278,10 +286,9 @@ body {
   height: 100%;
   min-height: 100%;
   font-weight: 600;
-
 }
 
-/* Apply Buttons (now blue) */
+/* Buttons */
 .button-container {
   display: flex;
   flex-wrap: wrap;
@@ -320,9 +327,41 @@ body {
   background-color: #f6f6f6;
   padding: 0rem;
   border-radius: 8px;
-  width: 500px;     /* ✅ fixed width */
-  height: 50px;    /* ✅ fixed height */
+  width: 500px;
+  height: 50px;
   text-align: center;
   box-shadow: none;
 }
 
+/* Logo styling for left-side job cards */
+.job-logo-left {
+  max-width: 100px;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Logo styling for right-side job detail */
+.job-logo-right {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Per-job overrides for logo size + vertical alignment */
+.job-logo-right.simulations-engineer {
+  width: 80px;
+  margin-top: 0rem;
+  transform: translateX(0px);
+}
+
+.job-logo-right.artificial-intelligence-member {
+  width: 110px;
+  margin-top: 0.4rem;
+}
+
+.job-logo-right.investment-analyst {
+  width: 150px;
+  margin-top: 0.2rem;
+}
