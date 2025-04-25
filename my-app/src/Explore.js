@@ -66,6 +66,7 @@ const jobs = [
 ];
 
 function Explore() {
+
   const [selectedJob, setSelectedJob] = useState(null);
   const [selectedIndustry, setSelectedIndustry] = useState("All");
   const [selectedHiringStatus, setSelectedHiringStatus] = useState("All");
@@ -93,10 +94,10 @@ function Explore() {
 
   return (
     <div className="explore-page">
-      <div className="nav-buttons" style={{ marginTop: "1rem" }}>
-        <button onClick={() => navigate("/")}>Home</button>
-        <button onClick={() => navigate("/explore")}>Explore</button>
-      </div>
+      {/* Back Button */}
+      <button className="back-button" onClick={() => navigate(-1)}>
+        ← Back
+      </button>
 
       <h1 className="explore-title">Student Teams</h1>
 

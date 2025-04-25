@@ -3,8 +3,11 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, Legend, ResponsiveContainer, Brush
 } from 'recharts';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const RocketSimulator = () => {
+    const navigate = useNavigate();
+    
     const [thrust, setThrust] = useState(1000);
     const [burnTime, setBurnTime] = useState(10);
     const [mass, setMass] = useState(50);
@@ -82,6 +85,10 @@ const RocketSimulator = () => {
   
     return (
       <div style={styles.container}>
+        {/* Back Button */}
+        <button style={styles.backButton} onClick={() => navigate(-1)}>
+                ← Back
+            </button>
         <div style={styles.description}>
           <h2>🚀 Rocket Flight Simulator</h2>
           <p>
@@ -197,6 +204,19 @@ This tool offers a basic but insightful look into the kind of work our simulatio
         border: '1px solid #ddd',
         borderRadius: '5px',
       },
+      backButton: {
+        position: 'absolute', // Position it at the top left
+        top: '20px',
+        left: '20px',
+        padding: '10px 15px',
+        backgroundColor: 'transparent', // Transparent background
+        color: '#807e7e', // Light gray text color
+        fontWeight: 'bold',
+        border: 'none', // No border
+        cursor: 'pointer',
+        fontSize: "1.2rem",
+      },
+
       content: {
         display: 'flex',
         flexDirection: 'row', // Arrange inputs and graph side by side
