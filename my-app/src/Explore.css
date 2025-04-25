@@ -149,7 +149,7 @@ body {
   flex: 1;
   overflow: visible;
   padding-top: 0.3rem;
-  padding-left: 1.5rem;
+  padding-left: 7rem;
   padding-right: 1.5rem;
   background-color: #f6f6f6;
   border-radius: 8px;
@@ -217,7 +217,8 @@ body {
   max-height: 100vh;
   border-radius: 8px;
   border: 2px solid #002b7a;
-  margin-right: 2rem;
+  margin-right: 7rem;
+  margin-top: 0.25rem;
 }
 
 .job-details-box {
@@ -269,8 +270,15 @@ body {
 
 .job-details-placeholder {
   font-size: 1.2rem;
-  color: #FFFCEF;
+  color: #1C1C1E;
   text-align: center;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 0.6rem;
+  height: 100%;
+  min-height: 100%;
+  font-weight: 600;
+
 }
 
 /* Apply Buttons (now blue) */
@@ -300,3 +308,21 @@ body {
 .job-details-box *:first-child {
   margin-top: 0;
 }
+
+.no-results-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-results-panel .job-details-box {
+  background-color: #f6f6f6;
+  padding: 0rem;
+  border-radius: 8px;
+  width: 500px;     /* ✅ fixed width */
+  height: 50px;    /* ✅ fixed height */
+  text-align: center;
+  box-shadow: none;
+}
+
