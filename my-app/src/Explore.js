@@ -13,7 +13,8 @@ const jobs = [
     title: 'Simulations Engineer',
     company: 'Monash High Powered Rocketry',
     logo: hprLogo,
-    paragraph: `As a Simulations Engineer within the Dynamics subteam at Monash High Powered Rocketry...`,
+    paragraph: `Monash High Powered Rocketry designs, builds, and launches rockets to compete in international competitions such as the Spaceport America Cup. The team brings together students from engineering, science, and computer science to create sophisticated aerospace systems.
+    <span class="bold-only">In this role, you may:</span>`,
     points: [
       'Working with SATURN, our custom python-based 6 degree of freedom trajectory simulator.',
       'Performing Computational Fluid Dynamics analysis.',
@@ -21,7 +22,7 @@ const jobs = [
       'Having input into rocket design decisions to ensure a safe and successful flight.',
     ],
     tags: ['Python', 'Space', 'Rockets'],
-    industry: 'Aerospace',
+    industry: ['Engineering', 'Technology'],
     hiringStatus: 'Active',
     hasVirtualExperience: true,
   },
@@ -30,7 +31,8 @@ const jobs = [
     title: 'Artificial Intelligence Member',
     company: 'Monash DeepNeuron',
     logo: mdnLogo,
-    paragraph: `The Monash Deep Neuron Team is a student-led initiative...`,
+    paragraph: `Monash DeepNeuron is a student-led research initiative focused on artificial intelligence and neuroscience. The team explores cutting-edge technologies including neural networks, brain-computer interfaces, and biologically-inspired models.
+    <span class="bold-only">In this role, you may:</span>`,
     points: [
       'Deep neural networks and large language models',
       'Computer vision, natural language processing, and reinforcement learning',
@@ -38,7 +40,7 @@ const jobs = [
       'Industry collaboration and academic publishing',
     ],
     tags: ['Data Science', 'Machine Learning', 'AI'],
-    industry: 'Artificial Intelligence',
+    industry: ['Technology'],
     hiringStatus: 'Active',
     hasVirtualExperience: true,
   },
@@ -47,26 +49,23 @@ const jobs = [
     title: 'Investment Analyst',
     company: 'Monash Student Managed Fund',
     logo: msmfLogo,
-    paragraph: `The Monash Student Managed Fund is a prestigious, student-run investment fund...`,
+    paragraph: `Monash Student Managed Fund is a student-run investment fund managing real capital on behalf of the Monash Foundation. It provides hands-on experience in stock research, valuation, and portfolio management.
+    <span class="bold-only">In this role, you may:</span>`,
     points: [
       'Conduct equity research and valuation of ASX-listed companies...',
       'Perform industry and macroeconomic analysis...',
       'Build and maintain financial models...',
       'Present investment recommendations...',
-      'Monitor portfolio performance...',
-      'Work collaboratively within a sector team...',
-      'Develop professional communication skills...',
       'Gain exposure to ethical investment practices...',
     ],
     tags: ['Modelling', 'Fundamental Analysis', 'Financial Markets'],
-    industry: 'Finance',
+    industry: ['Finance', 'Consulting'],
     hiringStatus: 'Active',
     hasVirtualExperience: true,
   },
 ];
 
 function Explore() {
-
   const [selectedJob, setSelectedJob] = useState(null);
   const [selectedIndustry, setSelectedIndustry] = useState("All");
   const [selectedHiringStatus, setSelectedHiringStatus] = useState("All");
@@ -77,9 +76,12 @@ function Explore() {
   const toggleIndustryDropdown = () => setIsIndustryDropdownOpen(prev => !prev);
 
   const filteredJobs = jobs.filter((job) => {
-    const matchesIndustry = selectedIndustry === "All" || job.industry === selectedIndustry;
-    const matchesHiring = selectedHiringStatus === "All" || job.hiringStatus === selectedHiringStatus;
-    const matchesVirtual = selectedVirtualExperience === "All" ||
+    const matchesIndustry =
+      selectedIndustry === "All" || job.industry.includes(selectedIndustry);
+    const matchesHiring =
+      selectedHiringStatus === "All" || job.hiringStatus === selectedHiringStatus;
+    const matchesVirtual =
+      selectedVirtualExperience === "All" ||
       (selectedVirtualExperience === "Yes" && job.hasVirtualExperience) ||
       (selectedVirtualExperience === "No" && !job.hasVirtualExperience);
     return matchesIndustry && matchesHiring && matchesVirtual;
@@ -94,7 +96,6 @@ function Explore() {
 
   return (
     <div className="explore-page">
-      {/* Back Button */}
       <button className="back-button" onClick={() => navigate(-1)}>
         ← Back
       </button>
@@ -109,7 +110,7 @@ function Explore() {
             </button>
             {isIndustryDropdownOpen && (
               <div className="dropdown-content">
-                {["All", "Aerospace", "Artificial Intelligence", "Finance"].map(ind => (
+                {["All", "Consulting", "Finance", "Technology", "Engineering"].map(ind => (
                   <div key={ind} onClick={() => { setSelectedIndustry(ind); setIsIndustryDropdownOpen(false); }}>
                     {ind}
                   </div>
@@ -149,27 +150,29 @@ function Explore() {
           </div>
         ) : (
           <>
-            <div className="job-list">
-              {filteredJobs.map((job) => (
-                <div
-                  key={job.id}
-                  className={`job-card ${selectedJob?.id === job.id ? 'job-card-selected' : ''}`}
-                  onClick={() => setSelectedJob(job)}
-                >
-                  <div className="job-header">
-                    <div>
-                      <h3 className="job-title">{job.title}</h3>
-                      <p className="job-company">{job.company}</p>
+            <div className="job-left-column">
+              <div className="job-list">
+                {filteredJobs.map((job) => (
+                  <div
+                    key={job.id}
+                    className={`job-card ${selectedJob?.id === job.id ? 'job-card-selected' : ''}`}
+                    onClick={() => setSelectedJob(job)}
+                  >
+                    <div className="job-header">
+                      <div>
+                        <h3 className="job-title">{job.title}</h3>
+                        <p className="job-company">{job.company}</p>
+                      </div>
+                      <img src={job.logo} alt="Team logo" className="job-logo-left" />
                     </div>
-                    <img src={job.logo} alt="Team logo" className="job-logo-left" />
+                    <div className="job-tags">
+                      {job.tags.map((tag, index) => (
+                        <span key={index} className="job-tag">{tag}</span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="job-tags">
-                    {job.tags.map((tag, index) => (
-                      <span key={index} className="job-tag">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
             <div className="job-details">
