@@ -165,33 +165,44 @@ function Explore() {
               ))}
             </div>
 
-            {/* Right panel */}
-            <div className="job-details">
-              {selectedJob ? (
-                <div className="job-details-box">
-                  <h2 className="job-details-title">{selectedJob.title}</h2>
-                  <h3 className="job-details-company">{selectedJob.company}</h3>
-                  {selectedJob.paragraph.split('\n').map((text, index) => (
-                    <p
-                      key={index}
-                      className="job-details-paragraph"
-                      dangerouslySetInnerHTML={{ __html: text.trim() }}
-                    ></p>
-                  ))}
-                  <ul className="job-details-points">
-                    {selectedJob.points.map((point, index) => (
-                      <li key={index}>{point}</li>
-                    ))}
-                  </ul>
-                  <div className="button-container">
-                    <button className="apply-button">Apply Now</button>
-                  </div>
-                </div>
-              ) : (
-                <div className="job-details-box">
-                  <p className="job-details-placeholder">Select a job to view more details and try a virtual challenge.</p>
-                </div>
-              )}
+        {/* Right Panel: Job Details */}
+        {selectedJob && (
+          <div className="job-details">
+            <div className="job-details-box">
+              <h2 className="job-details-title">{selectedJob.title}</h2>
+              <h3 className="job-details-company">{selectedJob.company}</h3>
+              {selectedJob.paragraph.split('\n').map((text, index) => (
+                <p
+                  key={index}
+                  className="job-details-paragraph"
+                  dangerouslySetInnerHTML={{ __html: text.trim() }}
+                ></p>
+              ))}
+              <ul className="job-details-points">
+                {selectedJob.points.map((point, index) => (
+                  <li key={index}>{point}</li>
+                ))}
+              </ul>
+              <div className="button-container">
+                <button className="apply-button" onClick={() => alert("Apply Now functionality can be implemented here!")}>
+                  Apply Now
+                </button>
+                {selectedJob.title === "Simulations Engineer" && (
+                  <button className="apply-button" onClick={() => navigate("/rocket-simulator")}>
+                    Go to Rocket Simulator
+                  </button>
+                )}
+                {selectedJob.title === "Artificial Intelligence Member" && (
+                  <button className="apply-button" onClick={() => navigate("/ai-virtual-experience")}>
+                    Go to AI Virtual Experience
+                  </button>
+                )}
+                {selectedJob.title === "Investment Analyst" && (
+                  <button className="apply-button" onClick={() => navigate("/finance-virtual-experience")}>
+                    Go to Finance Virtual Experience
+                  </button>
+                )}
+              </div>
             </div>
           </>
         )}
