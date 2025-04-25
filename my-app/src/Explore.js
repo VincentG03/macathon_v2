@@ -6,6 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import hprLogo from './assets/hpr.png';
 import mdnLogo from './assets/mdn.jpeg';
 import msmfLogo from './assets/msmf.jpeg';
+import novaLogo from './assets/novarova.png';
+import mmsLogo from './assets/motorsport.png';
+import aimLogo from './assets/aim.png';
+import writeLogo from './assets/writers.jpg';
+import brewLogo from './assets/brew.png';
 
 const jobs = [
   {
@@ -62,6 +67,100 @@ const jobs = [
     industry: ['Finance', 'Consulting'],
     hiringStatus: 'Active',
     hasVirtualExperience: true,
+  },
+  {
+    id: 4,
+    title: 'Robotics Engineer',
+    company: 'Monash Nova Rova',
+    logo: novaLogo,
+    paragraph: `Monash Nova Rover is a student-led team that designs, builds, and operates Mars rovers to compete in international competitions such as the University Rover Challenge (URC). The team brings together students from engineering, science, IT, and design to develop advanced robotic systems capable of autonomous navigation, science exploration, and remote operation in challenging environments.
+    <span class="bold-only">In this role, you may:</span>`,
+    points: [
+      'Work on autonomous navigation algorithms using sensor fusion and computer vision.',
+      'Develop and test robotic subsystems including the manipulator arm, drivetrain, and science module.',
+      'Analyze system performance through real-world testing and simulation environments.',
+      'Contribute to software and hardware integration to ensure reliable and mission-ready rover operations.',
+      'Participate in multidisciplinary design reviews and decision-making processes for rover development.',
+    ],
+    tags: ['Python', 'Space', 'Rovers'],
+    industry: ['Engineering', 'Technology'],
+    hiringStatus: 'Active',
+    hasVirtualExperience: false,
+  },
+  {
+    id: 5,
+    title: 'Electrical Engineer',
+    company: 'Monash MotorSport',
+    logo: mmsLogo,
+    paragraph: `Monash Motorsport is a student-run team that designs, builds, and races Formula Student electric and autonomous race cars to compete in global competitions such as Formula SAE-A and Formula Student Germany. The team brings together students from engineering, science, IT, and commerce to push the boundaries of automotive innovation through advanced engineering, research, and testing.
+    <span class="bold-only">In this role, you may:</span>`,
+    points: [
+      'Design and develop high-voltage systems including the accumulator, inverters, and motor controllers.',
+      'Implement low-voltage electronics for data acquisition, telemetry, and control systems.',
+      'Develop PCB designs for custom sensors, power distribution, and embedded systems.',
+      'Work with CAN bus protocols to integrate and debug communication across the vehicle.',
+      'Perform validation and testing of electrical systems to ensure safety, performance, and reliability on the track.',
+      'Collaborate closely with software and mechanical teams to deliver a seamless and high-performance vehicle.',
+    ],
+    tags: ['PCB', 'MotorSport', 'Cars'],
+    industry: ['Engineering', 'Technology'],
+    hiringStatus: 'Active',
+    hasVirtualExperience: false,
+  },
+  {
+    id: 6,
+    title: 'Developer',
+    company: 'Monash AIM',
+    logo: aimLogo,
+    paragraph: `Monash AIM is a student-led initiative harnessing the power of AI to revolutionise medical imaging. We’re developing innovative solutions for disease classification and detection, using a diverse skillset that includes Python, machine learning, and image processing.
+    We AIM to be at the forefront of AI-driven medical imaging solutions, enabling the advancement of clinical practice by bringing passionate students from various disciplines in order to collaborate and create innovative solutions.
+    <span class="bold-only">In this role, you may:</span>`,
+    points: [
+      'Develop and train deep learning models (e.g. CNNs, transformers) for medical image classification, segmentation, and anomaly detection.',
+      'Work with medical datasets such as X-rays, MRIs, or CT scans—handling preprocessing, augmentation, and annotation.',
+      'Implement and fine-tune models using frameworks like TensorFlow, PyTorch, or Keras.',
+      'Optimize model performance for accuracy, sensitivity, and clinical relevance.',
+    ],
+    tags: ['Medical Imaging', 'AI', 'Machine Learning'],
+    industry: ['Medicine', 'Technology'],
+    hiringStatus: 'Active',
+    hasVirtualExperience: false,
+  },
+  {
+    id: 7,
+    title: 'Writer',
+    company: 'Creative Writers Monash',
+    logo: writeLogo,
+    paragraph: `We are a writing community that encourages our members to write in all forms! We give talks about writing topics and provide feedback for each other's work at weekly meetings. We publish our members' work online and in print, run a yearly winter writers' retreat, spoken word events, and more!
+    <span class="bold-only">As a writer, you may:</span>`,
+    points: [
+      'Share your work and receive thoughtful, constructive feedback.',
+      'Offer feedback to others, sharpening your editing and critique skills.',
+      'Participate in writing prompts or mini-workshops.',
+      'Submit pieces for publication in the community\'s online platform and print collections.',
+    ],
+    tags: ['Medical Imaging', 'AI', 'Machine Learning'],
+    industry: ['Writing', 'Journalism'],
+    hiringStatus: 'Active',
+    hasVirtualExperience: false,
+  },
+  {
+    id: 8,
+    title: 'People and Culture',
+    company: 'Monash BrewLab',
+    logo: brewLogo,
+    paragraph: `Are you an alcoholic in need to quench your thirst? Join Monash BrewLab, a student-run brewery that produces high-quality craft beer. We are looking for passionate individuals to join our People and Culture team to help us create a positive and inclusive environment for all members.
+    <span class="bold-only">As a P&C officer, you may:</span>`,
+    points: [
+      'Collect feedback through surveys or informal chats to gauge team morale and identify areas for improvement.',
+      'Help with recruitment logistics—posting job ads, scheduling interviews, and supporting candidate experience.',
+      'Promote diversity, equity, and inclusion through events, education, and policy.',
+      'Maintain and update internal tools like org charts, calendars, or HR systems.',
+    ],
+    tags: ['HR', 'Brewing', 'Beer'],
+    industry: ['Brewery'],
+    hiringStatus: 'Active',
+    hasVirtualExperience: false,
   },
 ];
 

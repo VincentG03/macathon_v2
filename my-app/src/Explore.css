@@ -353,6 +353,31 @@ body {
   margin-top: 0.2rem;
 }
 
+.job-logo-right.electrical-engineer {
+    width: 150px;
+    margin-top: 0.2rem;
+  }
+
+.job-logo-right.robotics-engineer {
+    width: 150px;
+    margin-top: 0.2rem;
+    }
+
+.job-logo-right.developer {
+    width: 150px;
+    margin-top: 0.2rem;
+    }
+
+.job-logo-right.writer {
+    width: 130px;
+    margin-top: 0.1rem;
+    }
+
+.job-logo-right.people-and-culture {
+    width: 130px;
+    margin-top: 0.1rem;
+    }
+
 .bold-only {
   font-weight: bold;
   font-size: inherit;
