@@ -97,8 +97,8 @@ export default function TrainYourOwnModel() {
   };
 
   return (
-    <div className="container">
-      <h2>MDN Virtual Experience</h2>
+    <div className="container shadow-border">
+      <h1>🌈✨MDN Virtual Experience✨🌈</h1>
 
       {/* Iris Dataset Information */}
       <div className="section">

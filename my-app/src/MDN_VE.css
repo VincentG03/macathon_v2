@@ -64,4 +64,11 @@
     text-align: center; /* Center-align the content */
   }
 
+  .shadow-border {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+    padding: 60px; /* Add padding inside the section */
+    background: #f6f6f6; /* Ensure the background is white */
+  }
+
   /* Ensure bullet points align with the text */

@@ -190,7 +190,7 @@ function Explore() {
                     Go to Rocket Simulator
                   </button>
                 )}
-                {selectedJob.title === "Member" && (
+                {selectedJob.title === "Artificial Intelligence Member" && (
                   <button className="apply-button" onClick={() => navigate("/ai-virtual-experience")}>
                     Go to AI Virtual Experience
                   </button>
