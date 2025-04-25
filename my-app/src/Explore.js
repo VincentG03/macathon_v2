@@ -227,18 +227,19 @@ function Explore() {
           </div>
 
           <div className="filter-dropdown">
-            <select value={selectedHiringStatus} onChange={e => setSelectedHiringStatus(e.target.value)}>
-              <option value="All">Hiring Status: All</option>
-              <option value="Active">Active</option>
-              <option value="Non-active">Non-active</option>
-            </select>
+          <select value={selectedHiringStatus} onChange={e => setSelectedHiringStatus(e.target.value)}>
+            <option value="All">Hiring Status: All</option>
+            <option value="Active">Hiring Status: Active</option>
+            <option value="Non-active">Hiring Status: Non-active</option>
+          </select>
+
           </div>
 
           <div className="filter-dropdown">
             <select value={selectedVirtualExperience} onChange={e => setSelectedVirtualExperience(e.target.value)}>
               <option value="All">Has Virtual Experience: All</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
+              <option value="Yes">Hiring Status: Yes</option>
+              <option value="No">Hiring Status: No</option>
             </select>
           </div>
 

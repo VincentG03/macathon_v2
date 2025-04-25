@@ -58,14 +58,24 @@ body {
 .filter-dropdown select,
 .dropdown-button {
   padding: 0.6rem 2.5rem 0.6rem 1rem;
-  border: 1px solid #D1D8E0;
-  border-radius: 4px;
-  background-color: #FFFFFF;
+  border: 2px solid #002b7a; /* Match job-card border */
+  border-radius: 5px;         /* Match job-card border radius */
+  background-color: #f4f1ec;  /* Match job-card background */
   font-size: 1rem;
-  color: #0A1F44;
+  color: #0A1F44;             /* Consistent text color */
   cursor: pointer;
+  font-weight: bold;          /* Match font weight */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Match job-card shadow */
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
   appearance: none;
   position: relative;
+}
+
+.filter-dropdown select:hover,
+.dropdown-button:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Hover effect like job-card */
+  transform: translateY(-2px);
+  background-color: #e6f0ff; 
 }
 
 .filter-dropdown::after {
@@ -87,10 +97,10 @@ body {
 
 .dropdown-content {
   position: absolute;
-  background-color: #FFFFFF;
-  border: 1px solid #D1D8E0;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f4f1ec;  /* Match job-card background */
+  border: 2px solid #002b7a;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   margin-top: 0.5rem;
   z-index: 1000;
   width: 100%;
@@ -100,28 +110,37 @@ body {
   padding: 0.5rem 1rem;
   cursor: pointer;
   color: #0A1F44;
+  font-weight: bold;
   transition: background-color 0.2s ease;
 }
 
 .dropdown-content div:hover {
-  background-color: #F7F9FB;
+  background-color: #e6f0ff;  /* Match selected job-card style */
 }
+
 
 /* Reset Button */
 .reset-button {
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  border: 2px solid #002b7a; /* Match job-card border */
+  border-radius: 5px;         /* Match job-card border radius */
+  background-color: #f4f1ec;  /* Match job-card background */
   font-size: 1rem;
-  color: #002b7a;
-  border: 1px solid #002b7a;
-  border-radius: 4px;
-  background-color: #FFFFFF;
+  color: #0A1F44;             /* Consistent text color */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;          /* Match font weight */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Match job-card shadow */
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  appearance: none;
+  position: relative;
 }
 
 .reset-button:hover {
-  background-color: #F7F9FB;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Hover like job-card */
+  transform: translateY(-3px);               /* Slight lift on hover */
+  background-color: #e6f0ff;                 /* Optional: match job-card hover */
 }
+
 
 /* Main Layout */
 .explore-container {
