@@ -1,13 +1,13 @@
 // filepath: src/Explore.js
 import React, { useState } from 'react';
 import './Explore.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const jobs = [
   {
     id: 1,
-    title: 'Simulations Engineer',
-    company: 'Monash High Powered Rocketry',
+    title: 'Simulations Engineer', // This is the small card 
+    company: 'Monash High Powered Rocketry', // This is the small card 
     paragraph: `<strong> What is this role?</strong> \n
 As a Simulations Engineer within the Dynamics subteam at Monash High Powered Rocketry...`,
     points: [
@@ -16,8 +16,10 @@ As a Simulations Engineer within the Dynamics subteam at Monash High Powered Roc
       'Analyzing and assessing the trajectory and performance of rockets based on SATURN simulations.',
       'Having input into rocket design decisions to ensure a safe and successful flight.',
     ],
-    tags: ['Others', 'Found 32d ago', 'Python', 'Space', 'Rockets'],
+    tags: ['Python', 'Space', 'Rockets'],
     industry: 'Aerospace',
+    hiringStatus: 'Active',
+    hasVirtualExperience: true,
   },
   {
     id: 2,
@@ -33,6 +35,8 @@ The Monash Deep Neuron Team is a student-led initiative...`,
     ],
     tags: ['Data Science', 'Machine Learning', 'AI'],
     industry: 'Artificial Intelligence',
+    hiringStatus: 'Active',
+    hasVirtualExperience: true,
   },
   {
     id: 3,
@@ -52,59 +56,96 @@ The Monash Student Managed Fund is a prestigious, student-run investment fund...
     ],
     tags: ['Data Science', 'Machine Learning', 'AI'],
     industry: 'Finance',
+    hiringStatus: 'Active',
+    hasVirtualExperience: true,
   },
 ];
 
-function Explore({ goToHome, refreshExplore }) {
+function Explore() {
   const [selectedJob, setSelectedJob] = useState(null);
   const [selectedIndustry, setSelectedIndustry] = useState("All");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const navigate = useNavigate(); // Initialize navigate
-  const filteredJobs =
-  selectedIndustry === "All"
-    ? jobs
-    : jobs.filter((job) => job.industry === selectedIndustry);
+  const [selectedHiringStatus, setSelectedHiringStatus] = useState("All");
+  const [selectedVirtualExperience, setSelectedVirtualExperience] = useState("All");
+  const [isIndustryDropdownOpen, setIsIndustryDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
-  };
+  const toggleIndustryDropdown = () => setIsIndustryDropdownOpen(prev => !prev);
 
-  const handleIndustrySelect = (industry) => {
-    setSelectedIndustry(industry);
-    setIsDropdownOpen(false);
-    setSelectedJob(null); // Optional: reset selected job on filter
+  const filteredJobs = jobs.filter((job) => {
+    const matchesIndustry = selectedIndustry === "All" || job.industry === selectedIndustry;
+    const matchesHiring = selectedHiringStatus === "All" || job.hiringStatus === selectedHiringStatus;
+    const matchesVirtual = selectedVirtualExperience === "All" ||
+      (selectedVirtualExperience === "Yes" && job.hasVirtualExperience) ||
+      (selectedVirtualExperience === "No" && !job.hasVirtualExperience);
+    return matchesIndustry && matchesHiring && matchesVirtual;
+  });
+
+  const resetFilters = () => {
+    setSelectedIndustry("All");
+    setSelectedHiringStatus("All");
+    setSelectedVirtualExperience("All");
+    setSelectedJob(null);
   };
 
   return (
     <div className="explore-page">
-      {/* Navigation Buttons */}
+      {/* Navigation */}
       <div className="nav-buttons" style={{ marginTop: "1rem" }}>
-        <button onClick={() => navigate("/")}>Home</button> {/* Navigate to Home */}
+        <button onClick={() => navigate("/")}>Home</button>
         <button onClick={() => navigate("/explore")}>Explore</button>
       </div>
 
-      {/* Navbar for Filters */}
-      <div className="navbar">
-        <div className="filter-dropdown">
-          <button className="dropdown-button" onClick={toggleDropdown}>
-            Industry: {selectedIndustry === 'All' ? 'All' : selectedIndustry}
+      {/* Title */}
+      <h1 className="explore-title">Student Teams</h1>
+
+      {/* Filters */}
+      <div className="filter-bar">
+        <div className="navbar">
+          {/* Industry Dropdown */}
+          <div className="filter-dropdown">
+            <button className="dropdown-button" onClick={toggleIndustryDropdown}>
+              Industry: {selectedIndustry}
+            </button>
+            {isIndustryDropdownOpen && (
+              <div className="dropdown-content">
+                {["All", "Aerospace", "Artificial Intelligence", "Finance"].map(ind => (
+                  <div key={ind} onClick={() => { setSelectedIndustry(ind); setIsIndustryDropdownOpen(false); }}>
+                    {ind}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Hiring Status */}
+          <div className="filter-dropdown">
+            <select value={selectedHiringStatus} onChange={e => setSelectedHiringStatus(e.target.value)}>
+              <option value="All">Hiring Status: All</option>
+              <option value="Active">Active</option>
+              <option value="Non-active">Non-active</option>
+            </select>
+          </div>
+
+          {/* Virtual Experience */}
+          <div className="filter-dropdown">
+            <select value={selectedVirtualExperience} onChange={e => setSelectedVirtualExperience(e.target.value)}>
+              <option value="All">Has Virtual Experience: All</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          {/* Reset */}
+          <button className="reset-button" onClick={resetFilters}>
+            Reset Filters
           </button>
-          {isDropdownOpen && (
-            <div className="dropdown-content">
-              <div onClick={() => handleIndustrySelect('All')}>All</div>
-              <div onClick={() => handleIndustrySelect('Aerospace')}>Aerospace</div>
-              <div onClick={() => handleIndustrySelect('Artificial Intelligence')}>Artificial Intelligence</div>
-              <div onClick={() => handleIndustrySelect('Finance')}>Finance</div>
-            </div>
-          )}
         </div>
       </div>
 
       {/* Main Content */}
       <div className="explore-container">
-        {/* Job List */}
+        {/* Left Panel: Job Cards */}
         <div className="job-list">
-          <h2 className="section-title">Role Listings</h2>
           {filteredJobs.map((job) => (
             <div
               key={job.id}
@@ -122,9 +163,9 @@ function Explore({ goToHome, refreshExplore }) {
           ))}
         </div>
 
-        {/* Job Details */}
-        <div className="job-details">
-          {selectedJob ? (
+        {/* Right Panel: Job Details */}
+        {selectedJob && (
+          <div className="job-details">
             <div className="job-details-box">
               <h2 className="job-details-title">{selectedJob.title}</h2>
               <h3 className="job-details-company">{selectedJob.company}</h3>
@@ -141,44 +182,28 @@ function Explore({ goToHome, refreshExplore }) {
                 ))}
               </ul>
               <div className="button-container">
-  <button
-    className="apply-button"
-    onClick={() => alert("Apply Now functionality can be implemented here!")}
-  >
-    Apply Now
-  </button>
-  <div className="button-container">
-  {selectedJob?.title === "Simulations Engineer" && (
-    <button
-      className="apply-button"
-      onClick={() => navigate("/rocket-simulator")}
-    >
-      Go to Rocket Simulator
-    </button>
-  )}
-  {selectedJob?.title === "Member" && (
-    <button
-      className="apply-button"
-      onClick={() => navigate("/ai-virtual-experience")}
-    >
-      Go to AI Virtual Experience
-    </button>
-  )}
-  {selectedJob?.title === "Investment Analyst" && (
-    <button
-      className="apply-button"
-      onClick={() => navigate("/finance-virtual-experience")}
-    >
-      Go to Finance Virtual Experience
-    </button>
-  )}
-</div>
-</div>
+                <button className="apply-button" onClick={() => alert("Apply Now functionality can be implemented here!")}>
+                  Apply Now
+                </button>
+                {selectedJob.title === "Simulations Engineer" && (
+                  <button className="apply-button" onClick={() => navigate("/rocket-simulator")}>
+                    Go to Rocket Simulator
+                  </button>
+                )}
+                {selectedJob.title === "Member" && (
+                  <button className="apply-button" onClick={() => navigate("/ai-virtual-experience")}>
+                    Go to AI Virtual Experience
+                  </button>
+                )}
+                {selectedJob.title === "Investment Analyst" && (
+                  <button className="apply-button" onClick={() => navigate("/finance-virtual-experience")}>
+                    Go to Finance Virtual Experience
+                  </button>
+                )}
+              </div>
             </div>
-          ) : (
-            <p className="job-details-placeholder">Select a job to view details</p>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
