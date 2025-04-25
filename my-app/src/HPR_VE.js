@@ -90,16 +90,16 @@ const RocketSimulator = () => {
                 ← Back
             </button>
         <div style={styles.description}>
-          <h2>🚀 Rocket Flight Simulator</h2>
-          <p>
+          <h2 style={{ fontSize: '32px'}}>🚀 Rocket Flight Simulator</h2>
+          <p style={{ textAlign: "left"}}>
           The goal of this simulator is to provide a deeper understanding of how our rocket is expected to behave on launch day. As members of Monash High Powered Rocketry (HPR), we have access to detailed data on individual component masses, motor performance, and can even factor in environmental conditions like wind to closely approximate real-world flight behavior.
 
 Some of our recent advancements include the integration of airbrakes and the development of our own in-house hybrid engine. However, for simplicity, this simulator uses a one-degree-of-freedom (1DOF) model to estimate rocket performance.
 
 This tool offers a basic but insightful look into the kind of work our simulation engineers do at HPR.
           </p>
-          <h3 style={{ paddingTop: '30px' }}>Assumptions:</h3>
-          <ul style={{ listStylePosition: "inside", paddingLeft: "30%", margin: "0", textAlign: "left" }}>
+          <h3 style={{ paddingTop: '30px', fontSize: '32px'}}>💭Assumptions:</h3>
+          <ul style={{ listStylePosition: "inside", paddingLeft: "15%", margin: "0", textAlign: "left" }}>
             <li>The rocket's thrust is constant during the burn phase.</li>
             <li>Drag force is calculated using the drag equation: F_drag = 0.5 * Cd * A * v².</li>
             <li>Gravity is constant at 9.81 m/s² and does not vary with altitude.</li>
@@ -115,31 +115,31 @@ This tool offers a basic but insightful look into the kind of work our simulatio
           <div style={styles.sidebar}>
             <div style={styles.inputGroup}>
               <label>Thrust (N)</label>
-              <input type="number" value={thrust} onChange={(e) => setThrust(Number(e.target.value))} />
+              <input type="number" value={thrust} onChange={(e) => setThrust(Number(e.target.value))} style={styles.input}/>
             </div>
             <div style={styles.inputGroup}>
               <label>Burn Time (s)</label>
-              <input type="number" value={burnTime} onChange={(e) => setBurnTime(Number(e.target.value))} />
+              <input type="number" value={burnTime} onChange={(e) => setBurnTime(Number(e.target.value))} style={styles.input}/>
             </div>
             <div style={styles.inputGroup}>
               <label>Mass (kg)</label>
-              <input type="number" value={mass} onChange={(e) => setMass(Number(e.target.value))} />
+              <input type="number" value={mass} onChange={(e) => setMass(Number(e.target.value))} style={styles.input}/>
             </div>
             <div style={styles.inputGroup}>
               <label>Drag Coefficient</label>
-              <input type="number" value={dragCoefficient} onChange={(e) => setDragCoefficient(Number(e.target.value))} />
+              <input type="number" value={dragCoefficient} onChange={(e) => setDragCoefficient(Number(e.target.value))} style={styles.input}/>
             </div>
             <div style={styles.inputGroup}>
               <label>Cross Sectional Area (m²)</label>
-              <input type="number" value={area} onChange={(e) => setArea(Number(e.target.value))} />
+              <input type="number" value={area} onChange={(e) => setArea(Number(e.target.value))} style={styles.input}/>
             </div>
             <div style={styles.inputGroup}>
               <label>Parachute Area (m²)</label>
-              <input type="number" value={parachuteArea} onChange={(e) => setParachuteArea(Number(e.target.value))} />
+              <input type="number" value={parachuteArea} onChange={(e) => setParachuteArea(Number(e.target.value))} style={styles.input}/>
             </div>
             <div style={styles.inputGroup}>
               <label>Parachute Cd</label>
-              <input type="number" value={parachuteCd} onChange={(e) => setParachuteCd(Number(e.target.value))} />
+              <input type="number" value={parachuteCd} onChange={(e) => setParachuteCd(Number(e.target.value))} style={styles.input}/>
             </div>
             <button style={styles.button} onClick={simulateFlight}>Simulate</button>
           </div>
@@ -179,9 +179,9 @@ This tool offers a basic but insightful look into the kind of work our simulatio
         </div>
         <div style={styles.footer}>
   <p>
-    <strong>
+    {/* <strong> */}
       What variables do you think are missing or have not been considered in this 1DOF simulation? Consider factors like wind, air density variations, or other real-world complexities that could affect rocket performance.
-    </strong>
+    {/* </strong> */}
   </p>
 </div>
       </div>
@@ -191,19 +191,20 @@ This tool offers a basic but insightful look into the kind of work our simulatio
   // Inline styles
   const styles = {
     container: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center', // Center content horizontally
-        maxWidth: '1300px', // Set a fixed width for the content
-        margin: '0 auto', // Center the container on the page
-        padding: '50px', // Add padding for spacing
-        paddingBottom: '80px', // Add extra padding to ensure scrollbar visibility
-        fontFamily: 'Arial, sans-serif',
-        gap: '30px',
-        textAlign: 'center', // Center-align all text
-        border: '1px solid #ddd',
-        borderRadius: '5px',
-      },
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center', // Center content horizontally
+      maxWidth: '800px', // Set a fixed width for the content
+      margin: '0 auto', // Center the container on the page
+      padding: '50px', // Add padding for spacing
+      paddingBottom: '80px', // Add extra padding to ensure scrollbar visibility
+      fontFamily: 'Arial, sans-serif',
+      gap: '30px',
+      textAlign: 'center', // Center-align all text
+      boxShadow: '0 4px 18px rgba(0, 0, 0, 0.1)', // Adding shadow instead of border
+      borderRadius: '5px',
+      fontSize: '18px'
+    },
       backButton: {
         position: 'absolute', // Position it at the top left
         top: '20px',
@@ -220,7 +221,7 @@ This tool offers a basic but insightful look into the kind of work our simulatio
       content: {
         display: 'flex',
         flexDirection: 'row', // Arrange inputs and graph side by side
-        gap: '30px',
+        gap: '10px',
         width: '100%', // Ensure content takes up full width
         justifyContent: 'space-between', // Add spacing between inputs and graph
         paddingBottom: '20px', // Add padding to the bottom of the content area
@@ -230,15 +231,29 @@ This tool offers a basic but insightful look into the kind of work our simulatio
         flexDirection: 'column',
         gap: '10px',
         width: '25%', // Set width to 25% for a 1:3 ratio
+        paddingTop: '50px',
+        fontSize: '16px'
       },
       chartArea: {
         width: '75%', // Set width to 75% for a 1:3 ratio
       },
-    inputGroup: {
-      display: 'flex',
-      flexDirection: 'column',
-      marginBottom: '10px',
-    },
+      inputGroup: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginBottom: '0px',
+        
+      },
+      input: {
+        height: '26px',
+        textAlign: 'center',           // ⬅️ Horizontally center the text
+        padding: '0',                  // ⬅️ Remove side padding if needed
+        fontSize: '14px',
+        borderRadius: '4px',
+        border: '1px solid #ccc',
+        boxSizing: 'border-box',
+        lineHeight: '36px',            // ⬅️ Helps vertical alignment if needed
+      },      
+      
     footer: {
       marginTop: '20px',
       padding: '10px',
@@ -248,7 +263,7 @@ This tool offers a basic but insightful look into the kind of work our simulatio
       textAlign: 'center',
     },
     button: {
-      marginTop: '15px',
+      marginTop: '5px',
       padding: '10px',
       backgroundColor: '#4CAF50',
       color: 'white',
@@ -256,6 +271,7 @@ This tool offers a basic but insightful look into the kind of work our simulatio
       border: 'none',
       borderRadius: '5px',
       cursor: 'pointer',
+      fontSize: '17px'
     },
   };
   

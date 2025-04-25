@@ -105,30 +105,30 @@ const navigate = useNavigate();
       <button className="back-button" onClick={() => navigate(-1)}>
         ← Back
       </button>
-      <h1>🌈✨MDN Virtual Experience✨🌈</h1>
+      <h1 style={{ fontSize: '32px'}}>🌈✨MDN Virtual Experience✨🌈</h1>
 
       {/* Iris Dataset Information */}
       <div className="section">
-        <h2>🌸 The Iris Dataset</h2>
-        <p>
+        <h2 style={{ fontSize: '28px'}}>🌸 The Iris Dataset</h2>
+        <p style={{ fontSize: '18px'}}>
           The Iris dataset is a famous dataset in machine learning, often used for classification tasks. 
           It contains measurements of iris flowers from three different species: <strong>Setosa</strong>, 
           <strong>Versicolor</strong>, and <strong>Virginica</strong>. The dataset is small and simple, 
           making it an ideal starting point for learning about classification problems and machine learning algorithms.
         </p>
-        <h3 style={{ marginTop: "70px" }}>The Iris Dataset Features</h3>
-        <p>It has four features (also called attributes or inputs) for each flower:</p>
-        <ul style={{ listStylePosition: "inside", paddingLeft: "0", margin: "0", textAlign: "center" }}>
+        <h3 style={{ marginTop: "70px", fontSize: '28px' }}>The Iris Dataset Features</h3>
+        <p style={{ fontSize: '18px'}}>It has four features (also called attributes or inputs) for each flower:</p>
+        <ul style={{ listStylePosition: "inside", paddingLeft: "0", margin: "0", textAlign: "center", fontSize: '18px'}}>
     <li>Sepal Length (in cm)</li>
     <li>Sepal Width (in cm)</li>
     <li>Petal Length (in cm)</li>
     <li>Petal Width (in cm)</li>
   </ul>
-        <p>
+        <p style={{ fontSize: '18px'}}>
           These four features are used to classify the flowers into one of the three species. Each sample (data point) 
           in the dataset represents a flower, with its measurements and the corresponding label (the species).
         </p>
-        <h3 style={{ marginTop: "70px" }}>Example Data Points</h3>
+        <h3 style={{ marginTop: "70px", fontSize: '28px' }}>Example Data Points</h3>
         <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "10px" }}>
           <thead>
             <tr>
@@ -165,13 +165,23 @@ const navigate = useNavigate();
         </table>
       </div>
 
-      <h2 style={{ marginTop: "70px" }}>🧠 Learn AI by Training a Model</h2>
-      <p>This app uses a simple dataset (Iris) to show how machines learn from data.</p>
+      <h2 style={{ marginTop: "70px", fontSize: '28px' }}>🧠 Learn AI by Training a Model</h2>
+      <p style={{ fontSize: '18px' }}>This app uses a simple dataset (Iris) to show how machines learn from data.
+      </p>
+      <p style={{ fontSize: '18px' }}>
+        One common way to adjust the training results of your model is to change the learning rate and the number of epochs (training loops).
+      </p>
+      <ul style={{ listStylePosition: "inside", paddingLeft: "40px", margin: "0", textAlign: "left", fontSize: '18px'}}>
+    <li><strong className="highlight"> Learning rate </strong> is a hyperparameter that controls how much to change the model in response to the estimated error each time the model weights are updated.</li>
+    <li><strong className="highlight">Epochs </strong> are the number of times that the learning algorithm will work through the entire training dataset.</li>
+  </ul>
+  <p style={{ fontSize: '18px' }}>Knowing this now, let's try adjust these two parameters and see how it affects the training results.
+      </p>
 
       {/* Training Settings Section */}
       <div className="section">
-        <h3>1️⃣ Training Settings</h3>
-        <label>Learning Rate: </label>
+        <h3 style={{ fontSize: '28px' }}>1️⃣ Training Settings</h3>
+        <label style={{ fontSize: '18px' }}>Learning Rate: </label>
         <input
           type="number"
           step="0.01"
@@ -180,7 +190,7 @@ const navigate = useNavigate();
           className="input"
         />
         <br />
-        <label>Epochs (Training Loops): </label>
+        <label style={{ fontSize: '18px' }}>Epochs (Training Loops): </label>
         <input
           type="number"
           value={epochs}
@@ -192,6 +202,7 @@ const navigate = useNavigate();
           onClick={trainModel}
           disabled={isTraining}
           className="button button-primary"
+          style={{ fontSize: '18px' }}
         >
           {isTraining ? "Training..." : "Train Model"}
         </button>
@@ -199,7 +210,7 @@ const navigate = useNavigate();
 
       {/* Training Progress Section */}
 <div className="section">
-  <h3 style={{ marginTop: "70px" }}>2️⃣ Training Progress</h3>
+  <h3 style={{ marginTop: "70px", fontSize: '28px' }}>2️⃣ Training Progress</h3>
   <div style={{ display: "flex", justifyContent: "center" }}>
     <LineChart width={600} height={300} data={trainingData}>
       <CartesianGrid strokeDasharray="3 3" />
@@ -219,8 +230,8 @@ const navigate = useNavigate();
 
       {/* Try It Yourself Section */}
       <div style={{ marginTop: "70px" }} className="section">
-        <h3>3️⃣ Try It Yourself</h3>
-        <p>Enter measurements and predict the type of iris flower:</p>
+        <h3 style={{ fontSize: '28px' }}>3️⃣ Try It Yourself</h3>
+        <p style={{ fontSize: '18px' }}>Enter measurements and predict the type of iris flower:</p>
         <div style={{ display: "flex", gap: "10px", marginBottom: "10px", flexDirection: "row" }}>
           {["Sepal Length", "Sepal Width", "Petal Length", "Petal Width"].map((label, i) => (
             <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -244,6 +255,7 @@ const navigate = useNavigate();
           onClick={handlePredict}
           disabled={!model}
           className="button button-success"
+          style={{ fontSize: '18px' }}
         >
           Predict
         </button>

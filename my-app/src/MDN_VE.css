@@ -38,6 +38,8 @@
   
   .button-success {
     background: #28a745;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   
   /* Input styles */
