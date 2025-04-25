@@ -135,8 +135,31 @@ body {
 /* Job List (Left) */
 .job-left-column {
   flex: 1;
-  padding: 0; /* ✅ Remove any default offset */
+  max-height: 85vh;
+  overflow-y: auto;
+  padding-right: 1rem; /* optional: prevents scroll bar overlap */
+  position: sticky;
+  top: 1rem;
 }
+
+.job-left-column::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .job-left-column::-webkit-scrollbar-track {
+    background: #f6f6f6; /* matches your page background */
+    border-radius: 8px;
+  }
+  
+  .job-left-column::-webkit-scrollbar-thumb {
+    background-color: #cfcfcf; /* subtle, clean thumb */
+    border-radius: 8px;
+    border: 2px solid #f6f6f6; /* padding illusion */
+  }
+  
+  .job-left-column::-webkit-scrollbar-thumb:hover {
+    background-color: #b5b5b5;
+  }
 
 .job-list {
   flex: 1;
