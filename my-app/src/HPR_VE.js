@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid,
-  Tooltip, Legend, ResponsiveContainer
+  Tooltip, Legend, ResponsiveContainer, Brush
 } from 'recharts';
 
 const RocketSimulator = () => {
@@ -91,8 +91,8 @@ Some of our recent advancements include the integration of airbrakes and the dev
 
 This tool offers a basic but insightful look into the kind of work our simulation engineers do at HPR.
           </p>
-          <h3>Assumptions:</h3>
-          <ul>
+          <h3 style={{ paddingTop: '30px' }}>Assumptions:</h3>
+          <ul style={{ listStylePosition: "inside", paddingLeft: "30%", margin: "0", textAlign: "left" }}>
             <li>The rocket's thrust is constant during the burn phase.</li>
             <li>Drag force is calculated using the drag equation: F_drag = 0.5 * Cd * A * v².</li>
             <li>Gravity is constant at 9.81 m/s² and does not vary with altitude.</li>
@@ -140,14 +140,34 @@ This tool offers a basic but insightful look into the kind of work our simulatio
           <div style={styles.chartArea}>
             <h3>📈 Altitude vs Time</h3>
             <ResponsiveContainer width="100%" height={400}>
-              <LineChart data={altitudes}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="time" label={{ value: 'Time (s)', position: 'insideBottom', offset: -5 }} />
-                <YAxis label={{ value: 'Altitude (m)', angle: -90, position: 'insideLeft' }} />
-                <Tooltip />
-                <Line type="monotone" dataKey="altitude" stroke="#8884d8" strokeWidth={2} dot={false} />
-              </LineChart>
-            </ResponsiveContainer>
+  <LineChart data={altitudes}>
+    <CartesianGrid strokeDasharray="3 3" />
+    <XAxis 
+      dataKey="time" 
+      label={{ value: 'Time (s)', position: 'insideBottom', offset: -5 }} 
+    />
+    <YAxis 
+      label={{ value: 'Altitude (m)', angle: -90, position: 'insideLeft' }} 
+    />
+    <Tooltip />
+    <Legend layout="vertical" align="center" verticalAlign="top" />
+    <Line 
+      type="monotone" 
+      dataKey="altitude" 
+      stroke="#8884d8" 
+      strokeWidth={2} 
+      dot={false} 
+    />
+    {/* Adjust Brush to be thinner and shifted down */}
+    <Brush
+      dataKey="time" 
+      height={10} // Make the brush thinner
+      y={390} // Shift the brush down to avoid overlapping with the x-axis
+      stroke="#8884d8" 
+      
+    />
+  </LineChart>
+</ResponsiveContainer>
           </div>
         </div>
         <div style={styles.footer}>
@@ -164,43 +184,49 @@ This tool offers a basic but insightful look into the kind of work our simulatio
   // Inline styles
   const styles = {
     container: {
-      display: 'flex',
-      flexDirection: 'column',
-      padding: '20px',
-      fontFamily: 'Arial, sans-serif',
-      gap: '30px',
-    },
-    description: {
-      marginBottom: '20px',
-      padding: '10px',
-      backgroundColor: '#f9f9f9',
-      border: '1px solid #ddd',
-      borderRadius: '5px',
-    },
-    content: {
-      display: 'flex',
-      gap: '30px',
-    },
-    sidebar: {
-      flex: 1,
-      maxWidth: '300px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '10px',
-    },
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center', // Center content horizontally
+        maxWidth: '1300px', // Set a fixed width for the content
+        margin: '0 auto', // Center the container on the page
+        padding: '50px', // Add padding for spacing
+        paddingBottom: '80px', // Add extra padding to ensure scrollbar visibility
+        fontFamily: 'Arial, sans-serif',
+        gap: '30px',
+        textAlign: 'center', // Center-align all text
+        border: '1px solid #ddd',
+        borderRadius: '5px',
+      },
+      content: {
+        display: 'flex',
+        flexDirection: 'row', // Arrange inputs and graph side by side
+        gap: '30px',
+        width: '100%', // Ensure content takes up full width
+        justifyContent: 'space-between', // Add spacing between inputs and graph
+        paddingBottom: '20px', // Add padding to the bottom of the content area
+      },
+      sidebar: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '10px',
+        width: '25%', // Set width to 25% for a 1:3 ratio
+      },
+      chartArea: {
+        width: '75%', // Set width to 75% for a 1:3 ratio
+      },
     inputGroup: {
       display: 'flex',
       flexDirection: 'column',
       marginBottom: '10px',
     },
     footer: {
-        marginTop: '20px',
-        padding: '10px',
-        backgroundColor: '#f9f9f9',
-        border: '1px solid #ddd',
-        borderRadius: '5px',
-        textAlign: 'center',
-      },
+      marginTop: '20px',
+      padding: '10px',
+      backgroundColor: '#f9f9f9',
+      border: '1px solid #ddd',
+      borderRadius: '5px',
+      textAlign: 'center',
+    },
     button: {
       marginTop: '15px',
       padding: '10px',
@@ -210,9 +236,6 @@ This tool offers a basic but insightful look into the kind of work our simulatio
       border: 'none',
       borderRadius: '5px',
       cursor: 'pointer',
-    },
-    chartArea: {
-      flex: 2,
     },
   };
   
