@@ -42,12 +42,11 @@ function Home() {
           <div className="tag">EXPERIENCE PREVIEWS</div>
           <h2>Preview the Work Before You Apply</h2>
           <p>
-            Tired of vague team descriptions? Now you can actually{' '}
-            <strong className="highlight">try the work</strong>. Complete short,
-            real challenges — from coding tasks to investment research —
-            designed by student teams. Get clarity and confidence before you
-            even apply.
-          </p>
+          Want to get more involved at university? The best way to do that is by surrounding 
+          yourself with like-minded students who share your interests and passions. 
+          Join a team where you can do <strong className="highlight"> meaningful work </strong> alongside others who are just as driven as 
+          you are. Not sure if it’s the right fit? Try a virtual experience — no commitment required.
+        </p>
         </div>
         <div className="media-collage">
           <div className="collage-row">
@@ -93,17 +92,11 @@ function Home() {
           <div className="tag">FIND YOUR FIT</div>
           <h2>Explore Teams That Match You</h2>
           <p>
-            Not every team is right for you — and that’s okay. With so many
-            styles — technical, creative, strategic — it’s hard to know where
-            you’ll actually enjoy the work. These try-before-you-apply tasks
-            give you a real look at what members actually do.
-          </p>
-          <p>
-            Through short virtual experiences, you can explore different teams,
-            see what fits your interests and time, and{' '}
-            <strong className="highlight">apply with confidence</strong> — no
-            guesswork needed.
-          </p>
+            With over 100 clubs and teams at university, not every one may be the perfect fit for you 
+            <strong className="highlight"> — but there's definitely one that is. </strong> Explore a virtual experience to discover where your 
+            interests align, connect with like-minded peers to engage in meaningful work you're 
+            passionate about whilst making new friends!
+        </p>
         </div>
         <div className="value-image">
           <img
