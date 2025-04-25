@@ -6,12 +6,16 @@ import Home from './Home';
 function App() {
   const [showExplore, setShowExplore] = useState(false);
 
+  const goToExplore = () => setShowExplore(true);
+  const goToHome = () => setShowExplore(false);
+  const refreshExplore = () => setShowExplore(false) || setTimeout(() => setShowExplore(true), 0);
+
   return (
     <div className="App" style={{ fontFamily: 'sans-serif' }}>
       {showExplore ? (
-        <Explore />
+        <Explore goToHome={goToHome} refreshExplore={refreshExplore} />
       ) : (
-        <Home goToExplore={() => setShowExplore(true)} />
+        <Home goToExplore={goToExplore} />
       )}
     </div>
   );

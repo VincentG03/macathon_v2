@@ -1,5 +1,6 @@
+// filepath: src/Explore.js
 import React, { useState } from 'react';
-import './Explore.css'; // Import the CSS file
+import './Explore.css';
 
 const jobs = [
   {
@@ -7,12 +8,7 @@ const jobs = [
     title: 'Simulations Engineer',
     company: 'Monash High Powered Rocketry',
     paragraph: `<strong> What is this role?</strong> \n
-As a Simulations Engineer within the Dynamics subteam at Monash High Powered Rocketry, you are at the forefront of modelling and simulating the flight behaviour of all our rockets. This includes developing and maintaining SATURN, our in-house Python-based 6-degree-of-freedom (6DOF) trajectory simulator, which is used to predict how a rocket will behave under various conditions. Your responsibilities also include performing Computational Fluid Dynamics (CFD) analysis to understand airflow and forces acting on the rocket, and assessing simulation outputs to guide key design decisions throughout the project lifecycle. 
- 
- <strong>Why is this important?</strong> \n
- Simulations are critical for both the performance and safety of our rockets. They allow us to validate flight profiles, predict failure modes, and optimize the design before physical tests take place—saving time, money, and reducing risk. Your work directly contributes to our mission success by ensuring that every launch is based on thorough analysis and accurate modelling. With real-world constraints such as launch regulations, weather, and manufacturing tolerances, the simulations team plays a vital role in integrating all factors into a single, coherent flight prediction framework.
- 
- <strong> What will you do?</strong> \n`,
+As a Simulations Engineer within the Dynamics subteam at Monash High Powered Rocketry...`,
     points: [
       'Working with SATURN, our custom python-based 6 degree of freedom trajectory simulator.',
       'Performing Computational Fluid Dynamics analysis.',
@@ -27,7 +23,7 @@ As a Simulations Engineer within the Dynamics subteam at Monash High Powered Roc
     title: 'Member',
     company: 'Monash DeepNeuron',
     paragraph: `<strong>What is this role?</strong> \n
-The Monash Deep Neuron Team is a student-led initiative at Monash University dedicated to exploring the frontiers of artificial intelligence, deep learning, and neural computation.`,
+The Monash Deep Neuron Team is a student-led initiative...`,
     points: [
       'Deep neural networks and large language models',
       'Computer vision, natural language processing, and reinforcement learning',
@@ -42,28 +38,27 @@ The Monash Deep Neuron Team is a student-led initiative at Monash University ded
     title: 'Investment Analyst',
     company: 'Monash Student Managed Fund',
     paragraph: `<strong>About Us</strong> \n
-The Monash Student Managed Fund is a prestigious, student-run investment fund operating within Monash Business School...`,
+The Monash Student Managed Fund is a prestigious, student-run investment fund...`,
     points: [
-      'Conduct equity research and valuation of ASX-listed companies using methods such as DCF, relative valuation, and precedent transactions.',
-      'Perform industry and macroeconomic analysis to inform investment theses.',
-      'Build and maintain financial models to forecast company performance and assess investment viability.',
-      'Present investment recommendations to an internal investment committee for approval and inclusion in the portfolio.',
-      'Monitor portfolio performance, track news/events affecting holdings, and provide regular updates.',
-      'Work collaboratively within a sector team to develop well-researched, evidence-based proposals.',
-      'Develop professional communication skills by writing research reports and delivering presentations to stakeholders.',
-      'Gain exposure to ethical investment practices and responsible portfolio management.',
+      'Conduct equity research and valuation of ASX-listed companies...',
+      'Perform industry and macroeconomic analysis...',
+      'Build and maintain financial models...',
+      'Present investment recommendations...',
+      'Monitor portfolio performance...',
+      'Work collaboratively within a sector team...',
+      'Develop professional communication skills...',
+      'Gain exposure to ethical investment practices...',
     ],
     tags: ['Data Science', 'Machine Learning', 'AI'],
     industry: 'Finance',
   },
 ];
 
-function Explore() {
+function Explore({ goToHome, refreshExplore }) {
   const [selectedJob, setSelectedJob] = useState(null);
-  const [selectedIndustry, setSelectedIndustry] = useState('All'); // State for selected industry
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown visibility
+  const [selectedIndustry, setSelectedIndustry] = useState('All');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Filter jobs based on the selected industry
   const filteredJobs = selectedIndustry === 'All'
     ? jobs
     : jobs.filter((job) => job.industry === selectedIndustry);
@@ -74,12 +69,18 @@ function Explore() {
 
   const handleIndustrySelect = (industry) => {
     setSelectedIndustry(industry);
-    setIsDropdownOpen(false); // Close the dropdown after selection
+    setIsDropdownOpen(false);
+    setSelectedJob(null); // Optional: reset selected job on filter
   };
 
   return (
     <div className="explore-page">
-    <div>
+      {/* Navigation Buttons */}
+      <div className="nav-buttons" style={{ marginTop: '1rem' }}>
+        <button onClick={goToHome}>Home</button>
+        <button onClick={refreshExplore}>Explore</button>
+      </div>
+
       {/* Navbar for Filters */}
       <div className="navbar">
         <div className="filter-dropdown">
@@ -90,9 +91,7 @@ function Explore() {
             <div className="dropdown-content">
               <div onClick={() => handleIndustrySelect('All')}>All</div>
               <div onClick={() => handleIndustrySelect('Aerospace')}>Aerospace</div>
-              <div onClick={() => handleIndustrySelect('Artificial Intelligence')}>
-                Artificial Intelligence
-              </div>
+              <div onClick={() => handleIndustrySelect('Artificial Intelligence')}>Artificial Intelligence</div>
               <div onClick={() => handleIndustrySelect('Finance')}>Finance</div>
             </div>
           )}
@@ -114,9 +113,7 @@ function Explore() {
               <p className="job-company">{job.company}</p>
               <div className="job-tags">
                 {job.tags.map((tag, index) => (
-                  <span key={index} className="job-tag">
-                    {tag}
-                  </span>
+                  <span key={index} className="job-tag">{tag}</span>
                 ))}
               </div>
             </div>
@@ -153,7 +150,6 @@ function Explore() {
           )}
         </div>
       </div>
-    </div>
     </div>
   );
 }
