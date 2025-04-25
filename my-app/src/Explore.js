@@ -8,7 +8,7 @@ const jobs = [
     id: 1,
     title: 'Simulations Engineer', // This is the small card 
     company: 'Monash High Powered Rocketry', // This is the small card 
-    paragraph: `<strong> What is this role?</strong> \n
+    paragraph: `
 As a Simulations Engineer within the Dynamics subteam at Monash High Powered Rocketry...`,
     points: [
       'Working with SATURN, our custom python-based 6 degree of freedom trajectory simulator.',
@@ -23,9 +23,9 @@ As a Simulations Engineer within the Dynamics subteam at Monash High Powered Roc
   },
   {
     id: 2,
-    title: 'Member',
+    title: 'Artificial Intelligence Member',
     company: 'Monash DeepNeuron',
-    paragraph: `<strong>What is this role?</strong> \n
+    paragraph: `
 The Monash Deep Neuron Team is a student-led initiative...`,
     points: [
       'Deep neural networks and large language models',
@@ -42,7 +42,7 @@ The Monash Deep Neuron Team is a student-led initiative...`,
     id: 3,
     title: 'Investment Analyst',
     company: 'Monash Student Managed Fund',
-    paragraph: `<strong>About Us</strong> \n
+    paragraph: `
 The Monash Student Managed Fund is a prestigious, student-run investment fund...`,
     points: [
       'Conduct equity research and valuation of ASX-listed companies...',
@@ -54,7 +54,7 @@ The Monash Student Managed Fund is a prestigious, student-run investment fund...
       'Develop professional communication skills...',
       'Gain exposure to ethical investment practices...',
     ],
-    tags: ['Data Science', 'Machine Learning', 'AI'],
+    tags: ['Modelling', 'Fundamental Analysis', 'Financial Markets'],
     industry: 'Finance',
     hiringStatus: 'Active',
     hasVirtualExperience: true,
