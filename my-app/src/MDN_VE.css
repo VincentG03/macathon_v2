@@ -1,0 +1,67 @@
+/* Center the content and make it narrower */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    max-width: 800px; /* Set a fixed width for the content */
+    margin: 0 auto; /* Center the container on the page */
+    padding: 20px; /* Add padding for spacing */
+    font-family: sans-serif;
+    text-align: center; /* Center-align all text */
+  }
+  
+  /* Section styles */
+  .section {
+    margin-bottom: 40px;
+  }
+  
+  /* Flexbox layout for controls and chart */
+  .flex-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    justify-content: center; /* Center the flex items */
+  }
+  
+  /* Button styles */
+  .button {
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .button-primary {
+    background: #007bff;
+  }
+  
+  .button-success {
+    background: #28a745;
+  }
+  
+  /* Input styles */
+  .input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Chart container */
+  .chart-container {
+    flex: 2;
+  }
+  
+  /* Controls container */
+  .controls-container {
+    flex: 1;
+  }
+
+  .section {
+    margin-bottom: 40px; /* Add spacing between sections */
+    width: 100%; /* Ensure sections take up full width */
+    text-align: center; /* Center-align the content */
+  }
+
+  /* Ensure bullet points align with the text */
