@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as tf from "@tensorflow/tfjs";
 import "./MDN_VE.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import {
   LineChart,
   Line,
@@ -40,6 +41,8 @@ const irisData = {
 const classNames = ["Setosa", "Versicolor", "Virginica"];
 
 export default function TrainYourOwnModel() {
+const navigate = useNavigate();
+
   const [learningRate, setLearningRate] = useState(0.1);
   const [epochs, setEpochs] = useState(20);
   const [trainingData, setTrainingData] = useState([]);
@@ -98,6 +101,10 @@ export default function TrainYourOwnModel() {
 
   return (
     <div className="container shadow-border">
+        {/* Back Button */}
+      <button className="back-button" onClick={() => navigate(-1)}>
+        ← Back
+      </button>
       <h1>🌈✨MDN Virtual Experience✨🌈</h1>
 
       {/* Iris Dataset Information */}
