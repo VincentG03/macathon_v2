@@ -31,7 +31,7 @@ function Home() {
             className="cta"
             onClick={() => navigate('/explore')}
           >
-            Find my next student team
+            Find my student team
           </button>
         </section>
       </div>

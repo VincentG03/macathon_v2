@@ -21,7 +21,7 @@ const jobs = [
       'Analyzing and assessing the trajectory and performance of rockets based on SATURN simulations.',
       'Having input into rocket design decisions to ensure a safe and successful flight.',
     ],
-    tags: ['Python', 'Space', 'Rockets'],
+    tags: ['Space', 'Rockets'],
     industry: ['Engineering', 'Technology'],
     hiringStatus: 'Active',
     hasVirtualExperience: true,
