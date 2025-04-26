@@ -47,7 +47,7 @@ const jobs = [
       'Industry collaboration and academic publishing',
     ],
     tags: ['Data Science', 'Machine Learning', 'AI'],
-    industry: ['Technology'],
+    industry: ['Technology', 'Engineering'],
     hiringStatus: 'Active',
     hasVirtualExperience: true,
   },
@@ -86,7 +86,7 @@ const jobs = [
       'Contribute to software and hardware integration to ensure reliable and mission-ready rover operations.',
       'Participate in multidisciplinary design reviews and decision-making processes for rover development.',
     ],
-    tags: ['Python', 'Space', 'Rovers'],
+    tags: ['Mars', 'Space', 'Rovers'],
     industry: ['Engineering', 'Technology'],
     hiringStatus: 'Active',
     hasVirtualExperience: false,
@@ -108,7 +108,7 @@ const jobs = [
       'Collaborate closely with software and mechanical teams to deliver a seamless and high-performance vehicle.',
     ],
     tags: ['PCB', 'MotorSport', 'Cars'],
-    industry: ['Engineering', 'Technology'],
+    industry: ['Engineering'],
     hiringStatus: 'Active',
     hasVirtualExperience: false,
   },
@@ -128,9 +128,9 @@ const jobs = [
       'Optimize model performance for accuracy, sensitivity, and clinical relevance.',
     ],
     tags: ['Medical Imaging', 'AI', 'Machine Learning'],
-    industry: ['Medicine', 'Technology'],
+    industry: ['Health', 'Technology'],
     hiringStatus: 'Active',
-    hasVirtualExperience: false,
+    hasVirtualExperience: true,
   },
   {
     id: 7,
@@ -146,8 +146,8 @@ const jobs = [
       'Participate in writing prompts or mini-workshops.',
       'Submit pieces for publication in the community\'s online platform and print collections.',
     ],
-    tags: ['Medical Imaging', 'AI', 'Machine Learning'],
-    industry: ['Writing', 'Journalism'],
+    tags: ['Creative, Publishing', 'Editing'],
+    industry: ['Creative'],
     hiringStatus: 'Active',
     hasVirtualExperience: false,
   },
@@ -166,7 +166,7 @@ const jobs = [
       'Maintain and update internal tools like org charts, calendars, or HR systems.',
     ],
     tags: ['HR', 'Brewing', 'Beer'],
-    industry: ['Brewery'],
+    industry: ['Health'],
     hiringStatus: 'Active',
     hasVirtualExperience: false,
   },
@@ -210,7 +210,9 @@ function Explore() {
         ← Back
       </button>
 
-      <h1 className="explore-title">Student Teams</h1>
+      <h1 className="explore-title">
+          Discover Your <span className="squiggly-underline">Team</span> 🤝
+      </h1>
 
       <div className="filter-bar">
         <div className="navbar">
@@ -220,7 +222,7 @@ function Explore() {
             </button>
             {isIndustryDropdownOpen && (
               <div className="dropdown-content">
-                {["All", "Consulting", "Finance", "Technology", "Engineering"].map(ind => (
+                {["All", "Consulting", "Finance", "Technology", "Engineering", 'Creative', 'Health'].map(ind => (
                   <div key={ind} onClick={() => { setSelectedIndustry(ind); setIsIndustryDropdownOpen(false); }}>
                     {ind}
                   </div>
