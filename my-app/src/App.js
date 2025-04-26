@@ -8,11 +8,11 @@ import MSMFExperience from './MSMF_VE';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/macathon_v2">
       <Routes>
-        <Route path="/" element={<Home />} /> {/* Home route */}
-        <Route path="/explore" element={<Explore />} /> {/* Explore route */}
-        <Route path="/rocket-simulator" element={<RocketSimulator />} /> {/* Rocket Simulator route */}
+        <Route path="/" element={<Home />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/rocket-simulator" element={<RocketSimulator />} />
         <Route path="/ai-virtual-experience" element={<TrainYourOwnModel />} />
         <Route path="/finance-virtual-experience" element={<MSMFExperience />} />
       </Routes>
