@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/macathon_v2/static/css/main.8826bbe6.css",
+    "main.js": "/macathon_v2/static/js/main.a66700e0.js",
+    "static/js/453.68693753.chunk.js": "/macathon_v2/static/js/453.68693753.chunk.js",
+    "static/media/monash.jpg": "/macathon_v2/static/media/monash.5f338436869d319c02db.jpg",
+    "static/media/180DC.png": "/macathon_v2/static/media/180DC.551da13f66be920328cb.png",
+    "static/media/group.jpg": "/macathon_v2/static/media/group.7ea9542e9b41d32d52c1.jpg",
+    "static/media/novarova.png": "/macathon_v2/static/media/novarova.3b35b385505801eff3b0.png",
+    "static/media/writers.jpg": "/macathon_v2/static/media/writers.2c520c43555895f56843.jpg",
+    "static/media/msmf.jpeg": "/macathon_v2/static/media/msmf.0fad081e7b2ee89e409b.jpeg",
+    "static/media/motorsport.png": "/macathon_v2/static/media/motorsport.b93d9c5833ea59d1a7b1.png",
+    "static/media/mac.png": "/macathon_v2/static/media/mac.9ea3ed6000fa120f311f.png",
+    "static/media/hpr.png": "/macathon_v2/static/media/hpr.3763d05594018ea91263.png",
+    "static/media/cca.png": "/macathon_v2/static/media/cca.6c9e2732930b3820144b.png",
+    "static/media/brew.png": "/macathon_v2/static/media/brew.c4547f8e16045a88cd7b.png",
+    "static/media/aim.png": "/macathon_v2/static/media/aim.d4dee51c1749518948cc.png",
+    "index.html": "/macathon_v2/index.html",
+    "main.8826bbe6.css.map": "/macathon_v2/static/css/main.8826bbe6.css.map",
+    "main.a66700e0.js.map": "/macathon_v2/static/js/main.a66700e0.js.map",
+    "453.68693753.chunk.js.map": "/macathon_v2/static/js/453.68693753.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8826bbe6.css",
+    "static/js/main.a66700e0.js"
+  ]
+}
