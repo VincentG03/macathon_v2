@@ -11,7 +11,6 @@ import mmsLogo from './assets/motorsport.png';
 import aimLogo from './assets/aim.png';
 import writeLogo from './assets/writers.jpg';
 import brewLogo from './assets/brew.png';
-import bannerImg from './assets/monash2.jpg';
 
 const jobs = [
   {
@@ -147,7 +146,7 @@ const jobs = [
       'Participate in writing prompts or mini-workshops.',
       'Submit pieces for publication in the community\'s online platform and print collections.',
     ],
-    tags: ['Writing', 'Storytelling', 'Creativity'],
+    tags: ['Medical Imaging', 'AI', 'Machine Learning'],
     industry: ['Writing', 'Journalism'],
     hiringStatus: 'Active',
     hasVirtualExperience: false,
@@ -158,7 +157,7 @@ const jobs = [
     company: 'Monash BrewLab',
     website: 'https://www.monashbrewlab.com/',
     logo: brewLogo,
-    paragraph: `Monash BrewLab is a student-run brewery that produces high-quality craft beer. We are looking for passionate individuals to join our People and Culture team to help us create a positive and inclusive environment for all members.
+    paragraph: `Are you an alcoholic in need to quench your thirst? Join Monash BrewLab, a student-run brewery that produces high-quality craft beer. We are looking for passionate individuals to join our People and Culture team to help us create a positive and inclusive environment for all members.
     <span class="bold-only">As a P&C officer, you may:</span>`,
     points: [
       'Collect feedback through surveys or informal chats to gauge team morale and identify areas for improvement.',
@@ -184,11 +183,14 @@ function Explore() {
   const toggleIndustryDropdown = () => setIsIndustryDropdownOpen(prev => !prev);
 
   const filteredJobs = jobs.filter((job) => {
-    const matchesIndustry = selectedIndustry === "All" || job.industry.includes(selectedIndustry);
-    const matchesHiring = selectedHiringStatus === "All" || job.hiringStatus === selectedHiringStatus;
-    const matchesVirtual = selectedVirtualExperience === "All"
-      || (selectedVirtualExperience === "Yes" && job.hasVirtualExperience)
-      || (selectedVirtualExperience === "No" && !job.hasVirtualExperience);
+    const matchesIndustry =
+      selectedIndustry === "All" || job.industry.includes(selectedIndustry);
+    const matchesHiring =
+      selectedHiringStatus === "All" || job.hiringStatus === selectedHiringStatus;
+    const matchesVirtual =
+      selectedVirtualExperience === "All" ||
+      (selectedVirtualExperience === "Yes" && job.hasVirtualExperience) ||
+      (selectedVirtualExperience === "No" && !job.hasVirtualExperience);
     return matchesIndustry && matchesHiring && matchesVirtual;
   });
 
@@ -201,55 +203,52 @@ function Explore() {
 
   return (
     <div className="explore-page">
-      <button className="back-button" onClick={() => navigate(-1)}>← Back</button>
+      <button className="back-button" onClick={() => navigate(-1)}>
+        ← Back
+      </button>
 
-      {/* Banner Section */}
-      <div className="explore-banner-container">
-        <img src={bannerImg} alt="Banner" className="explore-banner-image" />
-        <div className="explore-banner-overlay" />
-        <div className="explore-banner-title">Discover Your Team</div>
+      <h1 className="explore-title">Student Teams</h1>
 
-        <div className="explore-banner-filters">
-          <div className="navbar">
-            <div className="filter-dropdown">
-              <button className="dropdown-button" onClick={toggleIndustryDropdown}>
-                Industry: {selectedIndustry}
-              </button>
-              {isIndustryDropdownOpen && (
-                <div className="dropdown-content">
-                  {["All", "Consulting", "Finance", "Technology", "Engineering"].map(ind => (
-                    <div key={ind} onClick={() => { setSelectedIndustry(ind); setIsIndustryDropdownOpen(false); }}>
-                      {ind}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="filter-dropdown">
-              <select value={selectedHiringStatus} onChange={e => setSelectedHiringStatus(e.target.value)}>
-                <option value="All">Hiring Status: All</option>
-                <option value="Active">Active</option>
-                <option value="Non-active">Non-active</option>
-              </select>
-            </div>
-
-            <div className="filter-dropdown">
-              <select value={selectedVirtualExperience} onChange={e => setSelectedVirtualExperience(e.target.value)}>
-                <option value="All">Has Virtual Experience: All</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-            </div>
-
-            <button className="reset-button" onClick={resetFilters}>
-              Reset Filters
+      <div className="filter-bar">
+        <div className="navbar">
+          <div className="filter-dropdown">
+            <button className="dropdown-button" onClick={toggleIndustryDropdown}>
+              Industry: {selectedIndustry}
             </button>
+            {isIndustryDropdownOpen && (
+              <div className="dropdown-content">
+                {["All", "Consulting", "Finance", "Technology", "Engineering"].map(ind => (
+                  <div key={ind} onClick={() => { setSelectedIndustry(ind); setIsIndustryDropdownOpen(false); }}>
+                    {ind}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
+
+          <div className="filter-dropdown">
+          <select value={selectedHiringStatus} onChange={e => setSelectedHiringStatus(e.target.value)}>
+            <option value="All">Hiring Status: All</option>
+            <option value="Active">Hiring Status: Active</option>
+            <option value="Non-active">Hiring Status: Non-active</option>
+          </select>
+
+          </div>
+
+          <div className="filter-dropdown">
+            <select value={selectedVirtualExperience} onChange={e => setSelectedVirtualExperience(e.target.value)}>
+              <option value="All">Has Virtual Experience: All</option>
+              <option value="Yes">Hiring Status: Yes</option>
+              <option value="No">Hiring Status: No</option>
+            </select>
+          </div>
+
+          <button className="reset-button" onClick={resetFilters}>
+            Reset Filters
+          </button>
         </div>
       </div>
 
-      {/* Jobs and Details */}
       <div className="explore-container">
         {filteredJobs.length === 0 ? (
           <div className="no-results-panel">
@@ -309,13 +308,22 @@ function Explore() {
                       ))}
                     </ul>
                     <div className="button-container">
-                      {selectedJob.website && (
+                    {selectedJob.website && (
                         <button
                           className="apply-button"
                           onClick={() => window.open(selectedJob.website, '_blank', 'noopener,noreferrer')}
                         >
                           Visit Website
                         </button>
+                      )}
+                      {selectedJob.title === "Simulations Engineer" && (
+                        <button className="apply-button" onClick={() => navigate("/rocket-simulator")}>Go to Rocket Simulator Experience</button>
+                      )}
+                      {selectedJob.title === "Artificial Intelligence Member" && (
+                        <button className="apply-button" onClick={() => navigate("/ai-virtual-experience")}>Go to AI Experience</button>
+                      )}
+                      {selectedJob.title === "Investment Analyst" && (
+                        <button className="apply-button" onClick={() => navigate("/finance-virtual-experience")}>Go to Financial Analysis Experience</button>
                       )}
                     </div>
                   </>
