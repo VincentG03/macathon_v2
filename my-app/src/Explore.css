@@ -121,7 +121,7 @@ body {
 
 /* Reset Button */
 .reset-button {
-  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  padding: 0.6rem 2rem 0.6rem 1.7rem;
   border: 2px solid #002b7a; /* Match job-card border */
   border-radius: 5px;         /* Match job-card border radius */
   background-color: #f4f1ec;  /* Match job-card background */

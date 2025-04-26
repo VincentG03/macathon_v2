@@ -178,6 +178,9 @@ function Explore() {
   const [selectedHiringStatus, setSelectedHiringStatus] = useState("All");
   const [selectedVirtualExperience, setSelectedVirtualExperience] = useState("All");
   const [isIndustryDropdownOpen, setIsIndustryDropdownOpen] = useState(false);
+  const [isHiringDropdownOpen, setIsHiringDropdownOpen] = useState(false);
+  const [isVirtualDropdownOpen, setIsVirtualDropdownOpen] = useState(false);
+
   const navigate = useNavigate();
 
   const toggleIndustryDropdown = () => setIsIndustryDropdownOpen(prev => !prev);
@@ -227,21 +230,41 @@ function Explore() {
           </div>
 
           <div className="filter-dropdown">
-          <select value={selectedHiringStatus} onChange={e => setSelectedHiringStatus(e.target.value)}>
-            <option value="All">Hiring Status: All</option>
-            <option value="Active">Hiring Status: Active</option>
-            <option value="Non-active">Hiring Status: Non-active</option>
-          </select>
+  <button className="dropdown-button" onClick={() => setIsHiringDropdownOpen(prev => !prev)}>
+    Hiring Status: {selectedHiringStatus}
+  </button>
+  {isHiringDropdownOpen && (
+    <div className="dropdown-content">
+      {["All", "Active", "Non-active"].map(status => (
+        <div key={status} onClick={() => {
+          setSelectedHiringStatus(status);
+          setIsHiringDropdownOpen(false);
+        }}>
+          {status}
+        </div>
+      ))}
+    </div>
+  )}
+</div>
 
-          </div>
+<div className="filter-dropdown">
+  <button className="dropdown-button" onClick={() => setIsVirtualDropdownOpen(prev => !prev)}>
+    Virtual Experience: {selectedVirtualExperience}
+  </button>
+  {isVirtualDropdownOpen && (
+    <div className="dropdown-content">
+      {["All", "Yes", "No"].map(option => (
+        <div key={option} onClick={() => {
+          setSelectedVirtualExperience(option);
+          setIsVirtualDropdownOpen(false);
+        }}>
+          {option}
+        </div>
+      ))}
+    </div>
+  )}
+</div>
 
-          <div className="filter-dropdown">
-            <select value={selectedVirtualExperience} onChange={e => setSelectedVirtualExperience(e.target.value)}>
-              <option value="All">Has Virtual Experience: All</option>
-              <option value="Yes">Hiring Status: Yes</option>
-              <option value="No">Hiring Status: No</option>
-            </select>
-          </div>
 
           <button className="reset-button" onClick={resetFilters}>
             Reset Filters
