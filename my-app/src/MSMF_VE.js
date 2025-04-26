@@ -12,10 +12,7 @@ const MSMFExperience = () => {
     { name: "REA Group (Digital Property Platforms)", website: "https://www.rea-group.com" }
   ];
 
-  const introText = `The Investment Memo Challenge
-Welcome to the Monash Student Managed Fund (MSMF) Virtual Experience!
-
-At MSMF, student analysts research real-world companies and make recommendations to a live investment committee. In this simulation, you’ll step into the shoes of an analyst and prepare a short investment thesis on a well-known Australian company.
+  const introText = `At MSMF, student analysts research real-world companies and make recommendations to a live investment committee. In this simulation, you’ll step into the shoes of an analyst and prepare a short investment thesis on a well-known Australian company.
 
 You’ll be given a list of five companies with brief summaries and optional links to their annual reports. Your task is to analyze the business and decide whether you’d recommend the fund to Buy, Hold, or Sell the stock — just like a real MSMF team member.
 

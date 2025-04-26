@@ -91,13 +91,19 @@ const RocketSimulator = () => {
             </button>
         <div style={styles.description}>
           <h2 style={{ fontSize: '32px'}}>🚀 Rocket Flight Simulator</h2>
-          <p style={{ textAlign: "left"}}>
-          The goal of this simulator is to provide a deeper understanding of how our rocket is expected to behave on launch day. As members of Monash High Powered Rocketry (HPR), we have access to detailed data on individual component masses, motor performance, and can even factor in environmental conditions like wind to closely approximate real-world flight behavior.
+          <p style={{ textAlign: "left" }}>
+  The goal of this simulator is to provide a deeper understanding of how our rocket is expected to behave on launch day.
+</p>
+<p style={{ textAlign: "left" }}>
+  As members of Monash High Powered Rocketry (HPR), we have access to detailed data on individual component masses, motor performance, and can even factor in environmental conditions like wind to closely approximate real-world flight behavior.
+</p>
+<p style={{ textAlign: "left" }}>
+  Some of our recent advancements include the integration of airbrakes and the development of our own in-house hybrid engine.
+</p>
+<p style={{ textAlign: "left" }}>
+  However, for simplicity, this simulator uses a one-degree-of-freedom (1DOF) model to estimate rocket performance. This tool offers a basic but insightful look into the kind of work our simulation engineers do at HPR.
+</p>
 
-Some of our recent advancements include the integration of airbrakes and the development of our own in-house hybrid engine. However, for simplicity, this simulator uses a one-degree-of-freedom (1DOF) model to estimate rocket performance.
-
-This tool offers a basic but insightful look into the kind of work our simulation engineers do at HPR.
-          </p>
           <h3 style={{ paddingTop: '30px', fontSize: '32px'}}>💭Assumptions:</h3>
           <ul style={{ listStylePosition: "inside", paddingLeft: "15%", margin: "0", textAlign: "left" }}>
             <li>The rocket's thrust is constant during the burn phase.</li>
