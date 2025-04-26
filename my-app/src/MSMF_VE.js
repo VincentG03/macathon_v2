@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const MSMFExperience = () => {
+    const navigate = useNavigate();
+
   const companies = [
     { name: "CSL Limited (Healthcare/Biotech)", website: "https://www.csl.com" },
     { name: "BHP Group (Mining & Resources)", website: "https://www.bhp.com" },
@@ -40,6 +43,10 @@ This experience is designed to give you a taste of what it’s like to make real
 
   return (
     <div style={styles.outerContainer}>
+        {/* Back Button */}
+      <button style={styles.backButton} onClick={() => navigate(-1)}>
+        ← Back
+      </button>
       <div style={styles.container}>
         <h1 style={styles.title}>📊 MSMF Investment Memo Challenge</h1>
 
@@ -148,7 +155,19 @@ const styles = {
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer'
-  }
+  },
+  backButton: {
+    position: 'absolute', // Position it at the top left
+    top: '20px',
+    left: '20px',
+    padding: '10px 15px',
+    backgroundColor: 'transparent', // Transparent background
+    color: '#807e7e', // Light gray text color
+    fontWeight: 'bold',
+    border: 'none', // No border
+    cursor: 'pointer',
+    fontSize: "1.2rem",
+  },
 };
 
 export default MSMFExperience;
