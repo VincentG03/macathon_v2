@@ -400,11 +400,7 @@ body {
 
 .job-logo-right.electrical-engineer {
     width: 150px;
-<<<<<<< Updated upstream
     margin-top: 0.7rem;
-=======
-    margin-top: 1.2rem;
->>>>>>> Stashed changes
   }
 
 .job-logo-right.robotics-engineer {
@@ -418,7 +414,6 @@ body {
     }
 
 .job-logo-right.writer {
-<<<<<<< Updated upstream
     width: 90px;
     margin-bottom: 0.9rem;
     }
@@ -426,15 +421,6 @@ body {
 .job-logo-right.people-and-culture {
     width: 90px;
     margin-bottom: 0.7rem;
-=======
-    width: 80px;
-    margin-top: 0rem;
-    }
-
-.job-logo-right.people-and-culture {
-    width: 80px;
-    margin-top: 0rem;
->>>>>>> Stashed changes
     }
 
 .bold-only {
